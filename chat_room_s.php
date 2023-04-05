@@ -215,7 +215,7 @@ if(isset($_SESSION['useruid'])){
     if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id) {
         echo "<br><br>";
         echo "<div class='fixed-input main-content'>"; // ! Lånt fixed-input css
-        echo "<form class='form' method='POST' action='message_submit.php' style='background-color: var(--b);border: none;' >"; /* action='message_submit.php' */
+        echo "<form class='form' method='POST' action='/db/submit/message_submit.php' style='background-color: var(--b);border: none;' >"; /* action='message_submit.php' */
         // echo "<input type='textarea' name='input' class='input5' autocomplete='off' placeholder='Skriv en besked...'/>";
         echo "<textarea type='textarea' id='messageid' name='input' class='input5' style='display:inline-block;height: 4rem' autocomplete='off' placeholder='Skriv en besked...'></textarea>";
         echo "  <input type='hidden' name='chat_room_id' value='$chat_room_id'>";

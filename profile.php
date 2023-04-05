@@ -35,7 +35,7 @@ setcookie('prf_c', $prf_c, time() + (86400 * 30)); // 30 days
             <h1 style='font-size:30px;margin-bottom:35px'>{$_SESSION["username"]}</h1>
             
             <div class='modal-bodyi'>
-            <form class='form' action='profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
+            <form class='form' action'/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
                 <!-- <label class='label' for='color' style='color: #414141;font-size: 15px;text-align:left'>Skift Chatfarve</label> -->
                 <input minlength='7' maxlength='7' pattern='^#.*$' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
 

@@ -15,7 +15,7 @@ setcookie('crinv_c', $crinv_c, time() + (86400 * 30)); // 30 days
 <?php
     include_once 'db/includes/header.php';
 ?>
-<title>Inviter - Nivelo</title>
+<title>Opret nyt chatrum - Nivelo</title>
 </head>
 <body>
 
@@ -31,7 +31,7 @@ echo "
         <div class='title sysText' style='text-align: center;'>Opret nyt chatrum</div>
     </div>
     <div class='modal-bodyi'>
-        <form class='form' action='chat_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
+        <form class='form' action='/db/submit/chat_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
         <!-- <label class='label' for='bruger' style='color: #818181;font-size: 18px;'>Brugernavnet på den inviterede</label> -->
         <input class='input3' type='text' required name='bruger' id='bruger' placeholder='Brugernavn (inviterede bruger)' style='margin-bottom:20px'>
         
