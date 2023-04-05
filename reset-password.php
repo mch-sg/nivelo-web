@@ -32,7 +32,7 @@ setcookie('reset_c', $reset_c, time() + (86400 * 30)); // 30 days
         <input class='input3' autocomplete='off' type='email' required name='email2' id='name' placeholder='Emailaddresse' style='margin-bottom:5px'>
 
             <div class='modal-spc' style='text-align:center;'>
-                <button class='modal-btn startclr' type='submit' name='reset-request-submit'>Lav chat</button>
+                <button class='modal-btn startclr' type='submit' name='reset-request-submit'>Send kode</button>
             </div>
         </form>
     </div>";

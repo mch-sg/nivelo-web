@@ -27,7 +27,7 @@
                     
                     echo "<div class='disc' id='navlink' style='z-index: 1000;'>";
                     echo "<li><a class='pro nlink' style='vertical-align: middle;' href='invite.php'>Opret nyt rum</a></li>";
-                    echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/chat_room.php'>Chatrum</a></li>";
+                    echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/chat_room_s.php'>Chatrum</a></li>";
                     echo "<li id='brd2' class='brd' style='vertical-align: middle;text-align: center;border-left: 1px solid var(--borderclr); height: 35px; margin: 0 0 0 20px;'></li>";
                     echo "<li><a class='pro nlink' style='vertical-align: middle;' href='profile.php'>Profil</a> </div>";
 
@@ -39,7 +39,7 @@
 
                     echo "<div class='disc' id='navlink' style='z-index: 1000;'>";
                     echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/about.php'>Opdag</a></li>";
-                    echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/chat_room.php'>Chatrum</a></li>";
+                    echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/chat_room_s.php'>Chatrum</a></li>";
                     // echo "<li><a class='pro' style='vertical-align: middle;' href='/pro.php'>Gå Pro</a></li>";
                     echo "<li id='brd2' class='brd' style='vertical-align: middle;text-align: center;border-left: 1px solid var(--borderclr); height: 35px; margin: 0 0 0 20px;'></li>";
                     echo "<li><a class='pro nlink' style='vertical-align: middle;' href='login.php'>Log på</a></li>";

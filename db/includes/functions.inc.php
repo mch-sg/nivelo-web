@@ -123,6 +123,9 @@ function loginUser($conn, $username, $pwd) {
         $_SESSION["useruid"] = $uidExists["usersUid"];
 
         $expire = time() + 60 * 60 * 24 * 365; // 30 days
+        setcookie('loggedin', "true", $expire, "/");
+
+        $expire = time() + 60 * 60 * 24 * 365; // 30 days
         setcookie("user", $uidExists["usersUid"], $expire, "/");
 
         function str_rand(int $length = 20){ // 64 = 32

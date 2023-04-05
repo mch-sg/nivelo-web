@@ -219,6 +219,7 @@ if(isset($_SESSION['useruid'])){
         // echo "<input type='textarea' name='input' class='input5' autocomplete='off' placeholder='Skriv en besked...'/>";
         echo "<textarea type='textarea' id='messageid' name='input' class='input5' style='display:inline-block;height: 4rem' autocomplete='off' placeholder='Skriv en besked...'></textarea>";
         echo "  <input type='hidden' name='chat_room_id' value='$chat_room_id'>";
+        echo "  <input type='hidden' name='chatToken' value='$ranid'>";
         echo "  <input type='hidden' name='chat_room_name' value='$chat_room_name'>";
         echo "    <button class='modal-btn sendbtn startclr' type='submit' value='Send' style='margin-left: 1%;padding: 1.25rem 0rem;border: 1px solid var(--borderclr);'>Send</button>"; /* background: #ff462e; */
         echo "</form>";

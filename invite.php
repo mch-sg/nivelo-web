@@ -2,13 +2,13 @@
 session_start();
 
 // Initialize the counter to 0 if it doesn't exist
-if (!isset($_COOKIE['crinv_c'])) {
-    setcookie('crinv_c', 0, time() + (86400 * 30)); // 30 days
+if (!isset($_COOKIE['inv_cc'])) {
+    setcookie('inv_cc', 0, time() + (86400 * 30)); // 30 days
 }
 
 // Increment the counter by 1 and update the cookie
-$crinv_c = $_COOKIE['crinv_c'] + 1;
-setcookie('crinv_c', $crinv_c, time() + (86400 * 30)); // 30 days
+$inv_cc = $_COOKIE['inv_cc'] + 1;
+setcookie('inv_cc', $inv_cc, time() + (86400 * 30)); // 30 days
 
 ?>
 

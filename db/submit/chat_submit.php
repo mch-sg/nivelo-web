@@ -22,9 +22,7 @@ $chat_id = uniqid();
 $authorized = false;
 if (isset($_SESSION['useruid'])) {
     $session_user_id = $_SESSION['useruid'];
-    if ($session_user_id == $user_from_id || $session_user_id == $user_to_id) {
-        $authorized = true;
-    }
+    $authorized = true;
 }
 if (!$authorized) {
     die("You are not authorized to view this page.");
@@ -41,7 +39,7 @@ $sql = "INSERT INTO chat_rooms (name, user_from, user_to, uuid) VALUES ('$chat_r
 
 if (mysqli_query($conn, $sql)) {
     // echo "New record created successfully";
-    header("location: chat_room.php");
+    header("location: ../../chat_room_s.php");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

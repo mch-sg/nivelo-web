@@ -2,13 +2,13 @@
 session_start();
 
 // Initialize the counter to 0 if it doesn't exist
-if (!isset($_COOKIE['prf_c'])) {
-    setcookie('prf_c', 0, time() + (86400 * 30)); // 30 days
+if (!isset($_COOKIE['prf_cc'])) {
+    setcookie('prf_cc', 0, time() + (86400 * 30)); // 30 days
 }
 
 // Increment the counter by 1 and update the cookie
-$prf_c = $_COOKIE['prf_c'] + 1;
-setcookie('prf_c', $prf_c, time() + (86400 * 30)); // 30 days
+$prf_cc = $_COOKIE['prf_cc'] + 1;
+setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
 ?>
 
 <?php

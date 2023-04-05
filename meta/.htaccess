@@ -4,4 +4,4 @@
 
 # RewriteCond %{REQUEST_FILENAME}\.php -f
 
-# RewriteRule ^chat_room_s/s/room/([0-9a-zA-Z_-]+) chat_room_s.php?room=$1 [NC,L]
+# RewriteRule ^chat_room_s/room/([0-9a-zA-Z_-]+) chat_room_s.php?room=$1 [NC,L]
