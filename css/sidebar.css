@@ -1,0 +1,154 @@
+.sidebar {
+  width: 20%; /* 350px */
+  /* 150px */
+  height: 90%;
+
+  /* background-color: #f1f1f1; */
+  border-right: 1px solid var(--borderclr);
+  color: white;
+
+  font-family: "Inter", sans-serif;
+  justify-content: flex-end;
+  align-items: center;
+  /* padding: 50px 40px; */
+  text-align: center;
+
+  position: fixed;
+  left: 0;
+  /* top: 0; */
+}
+
+.main-content {
+  margin-left: 22.25%; /* 150px - 90px - 400px - 22.5% */
+}
+
+.sidebar-header {
+  font-weight: 300;
+  padding-top: 20px;
+  font-size: 18px;
+}
+
+.sid {
+  font-size: 18px;
+  transition: 0.15s ease;
+}
+
+.sid:hover {
+  color: var(--dimclr);
+}
+
+.creat {
+  opacity: 0.5;
+  transition: 0.15s ease;
+}
+
+.creat:hover {
+  color: var(--dimclr);
+}
+
+.fixed-input {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.fixed-input-main {
+  position: fixed;
+}
+
+.chatbox-container {
+  background-color: var(--minclr);
+  /* height: 72vh; /* 75vh */
+  /* 400px - 75vh */
+  /* width: 100%; /* 100% */
+  overflow-y: auto;
+  /* margin-bottom: 20px; */ /*    USEE !!     */
+  border: 1px solid var(--borderclr);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.chat-scale {
+  margin-bottom: 50px;
+  position: fixed;
+  top: 140px;
+  left: 22.25%;
+  right: 0;
+  bottom: 80px;
+  width: calc(100% - 24.5%);
+}
+
+.chatbox {
+  padding: 20px;
+  /* font-size: 14px; */
+}
+
+.wid {
+  width: 60%;
+}
+
+.pad {
+  padding-right: 15%;
+}
+.pad-s {
+  width: 70%;
+}
+
+.pad-xl {
+}
+
+.marleft {
+  margin-left: 10%;
+}
+
+/* Styles for screens smaller than 768px OR 812
+@media (max-width: 942px) {
+  .sidebar {
+    display: none; /* Hide the sidebar 
+  }
+
+  .main-content {
+    margin: 0;
+  }
+
+  .chat-scale {
+    left: 5%;
+    width: 90%;
+  }
+
+  .fixed-input {
+    left: 5%;
+    width: 90%;
+  }
+
+  .wid {
+    width: auto;
+  }
+
+  .pad {
+    padding-right: 5%;
+  }
+
+  .pad-s {
+    width: auto;
+    padding-right: 15%;
+  }
+}
+
+/* Styles for screens larger than 768px 
+@media (min-width: 942px) {
+  .sidebar {
+    display: block;
+  }
+
+  .main-content {
+    width: calc(100% - 24.5%); /* 350px - 200px - 450px 
+    float: left;
+  }
+
+  .fixed-input {
+    width: calc(100% - 24.5%); /* 350px - 200px - 450px 
+  }
+} */

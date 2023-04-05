@@ -1,0 +1,361 @@
+.disp {
+  display: none;
+}
+
+/*  SCREEN ADJUSTMENTS   */
+
+@media only screen and (max-width: 942px) {
+  /* !
+  !
+  ! RESPONSIVE NAVBAR
+  !
+  ! */
+
+  .disc {
+    display: none;
+  }
+  #p2 {
+    float: right;
+    display: block;
+  }
+
+  .disc.responsive {
+    margin: 25px;
+    top: 50px;
+    right: 50px;
+    display: grid;
+    text-align: right;
+    position: absolute;
+
+    float: right;
+  }
+  #p2 {
+    position: absolute;
+    right: 35px;
+    top: 35px;
+  }
+  .disc.responsive a {
+    margin-bottom: 15px;
+    float: none;
+    display: block;
+  }
+
+  .disp {
+    display: none !important;
+  }
+
+  /* ? 
+  ?
+  ? FOR REGULAR CSS
+  ?
+  ? */
+
+  h1 {
+    font-size: 35px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .sendbtn {
+    width: 25%;
+  }
+
+  .input5 {
+    width: 74%;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .startclr {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 350px;
+    /* max-width: 100%; */
+  }
+
+  .input {
+    width: 86%;
+    font-size: 1.1rem;
+  }
+
+  .container {
+    margin-top: 50px;
+  }
+
+  .todos li {
+    font-size: 1.1rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .loader::after {
+    width: 60px;
+    height: 60px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 1rem 1.5rem;
+  }
+
+  .input {
+    padding: 1rem 1.5rem;
+  }
+
+  form ul li span {
+    display: block;
+    width: 15px;
+    height: 15px;
+  }
+
+  li .destroy {
+    display: block;
+    font-size: 30px;
+
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    max-height: 35px;
+
+    margin: auto 0;
+    padding: 0;
+
+    border-radius: 50%;
+    margin-bottom: 25px;
+  }
+
+  #input3 {
+    max-width: 90%;
+    height: 100%;
+    font-size: 1.25rem;
+  }
+
+  .nav_links li {
+    display: inline-block;
+    padding: 0px 10px;
+    transition: 0.15s ease;
+  }
+
+  .nav_links li a {
+    /* transition: all 0.2s ease 0s; */
+    font-size: 10;
+    transition: 0.15s ease;
+  }
+
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .sidebar {
+    display: none; /* Hide the sidebar */
+  }
+
+  .main-content {
+    margin: 0;
+  }
+
+  .chat-scale {
+    left: 5%;
+    width: 90%;
+  }
+
+  .fixed-input {
+    left: 5%;
+    width: 90%;
+  }
+
+  .wid {
+    width: 90%; /* * 75% */
+  }
+
+  .marleft {
+    margin-left: 20%;
+  }
+
+  .pad {
+    padding-right: 5%;
+  }
+
+  .pad-s {
+    width: auto;
+    padding-right: 15%;
+  }
+}
+
+/* Styles for screens larger than 768px */
+@media (min-width: 942px) {
+  /* ? 
+  ?
+  ? FOR REGULAR CSS
+  ?
+  ? */
+
+  h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .wid {
+    width: 70%;
+  }
+
+  .sidebar {
+    display: block;
+  }
+
+  .main-content {
+    width: calc(100% - 24.5%); /* 350px - 200px - 450px */
+    float: left;
+  }
+
+  .fixed-input {
+    width: calc(100% - 24.5%); /* 350px - 200px - 450px */
+  }
+}
+
+/* SCREEN OPTIMIZING */ /*   MEDIUM   */
+@media screen and (min-width: 1024px) {
+  /* ? 
+  ?
+  ? FOR REGULAR CSS
+  ?
+  ? */
+
+  h1 {
+    font-size: 45px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .wid {
+    width: 65%; /* 75% */
+  }
+}
+
+/* SCREEN OPTIMIZING */ /*   LARGE   */
+@media screen and (min-width: 1366px) {
+  /* ? 
+  ?
+  ? FOR REGULAR CSS
+  ?
+  ? */
+
+  h1 {
+    font-size: 65px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .wid {
+    width: 65%;
+  }
+
+  .pad {
+    padding-right: 20%;
+  }
+
+  .pad-xl {
+    padding-right: 10%;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  /* ? 
+  ?
+  ? FOR REGULAR CSS
+  ?
+  ? */
+
+  .input {
+    width: 92%;
+  }
+
+  .container {
+    width: 600px;
+    max-width: 100%;
+  }
+
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .pad {
+    padding-right: 40%;
+  }
+
+  .pad-xl {
+    padding-right: 20%;
+  }
+}
+
+@media only screen and (min-width: 3000px) {
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .pad {
+    padding-right: 55%;
+  }
+
+  .pad-xl {
+    padding-right: 30%;
+  }
+}
+
+@media only screen and (max-height: 775px) {
+  /* * 
+  *
+  * FOR SIDEBAR CSS
+  *
+  * */
+
+  .wid {
+    margin-top: 35px;
+  }
+
+  .logScale {
+    margin-top: 50px;
+  }
+}

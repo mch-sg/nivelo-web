@@ -1,0 +1,174 @@
+:root {
+  --borderclr: #ffffff11;
+
+  --add: #cececed2;
+  --dimclr: #acacac; /* #949494 */
+  --buttonhover: #aaaaaa; /* #919191 */
+
+  /*   
+  --add: #b7bfc9d2;
+  --dimclr: #687986;
+  --buttonhover: #64717c;
+  --hclr: #8a949c;
+   */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: auto;
+}
+
+small {
+  line-height: 20px;
+}
+
+.mainalign {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  /* padding: 0 40px; */
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5rem;
+  margin-top: auto;
+  border-top: 1px solid var(--borderclr);
+}
+
+li,
+a,
+cta {
+  /* font-size: 18px; */
+  text-decoration: none;
+}
+
+.head {
+  font-family: "Inter", sans-serif;
+
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 25px 0 25px;
+  height: 100px;
+  text-align: center;
+  border-bottom: 1px solid var(--borderclr);
+  vertical-align: middle;
+}
+
+.head {
+  display: flex;
+}
+
+.footer {
+  font-family: "Inter", sans-serif;
+  padding: 45px 45px;
+  /* text-align: center; */
+  border-bottom: 1px solid var(--borderclr);
+}
+
+.h-logo {
+  margin-right: auto;
+}
+
+.hv {
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+.hv:hover {
+  opacity: 0.5;
+}
+
+.logo {
+  cursor: pointer;
+  margin-right: auto;
+  width: 165px;
+  height: auto;
+  transition: 0.15s ease;
+}
+
+.logo:hover {
+  opacity: 0.7;
+  transition: 0.15s ease;
+}
+
+.nav_links {
+  list-style: none;
+  vertical-align: middle;
+  transition: 0.15s ease;
+}
+
+.nav_links li {
+  display: inline-block;
+  padding: 0px 15px;
+  transition: 0.15s ease;
+}
+
+.nav_links li a {
+  /* transition: all 0.2s ease 0s; */
+  font-size: 18px;
+  transition: 0.15s ease;
+}
+
+.diva:hover {
+  color: var(--dimclr);
+}
+
+/* .diva:hover + .divb {
+    color: var(--hclr);
+  }  */
+
+#p1:hover ~ #p2 {
+  color: var(--hclr);
+}
+#p2:hover {
+  color: var(--hclr);
+}
+
+.pro {
+  transition: 0.15s ease;
+}
+
+.pro:hover {
+  color: var(--dimclr);
+}
+
+.cta {
+  margin-left: 15px;
+  /* background-color: var(--hclr); */
+  cursor: pointer;
+  /* transition: all 0.2s ease 0s; */
+}
+
+.cta:hover {
+  color: var(--hclr);
+}
+
+.profilepicture img {
+  vertical-align: middle;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.copy {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--dim);
+  margin-right: auto;
+  /* float: left; */
+}
+
+.pro {
+  /* color: var(--hclr); */
+  transition: 0.15s ease;
+}
