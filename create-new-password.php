@@ -71,4 +71,4 @@ setcookie('reset_c', $reset_c, time() + (86400 * 30)); // 30 days
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="css/palette-selector.css">
+<link rel="stylesheet" href="/css/palette-selector.css">

@@ -29,10 +29,10 @@ setcookie('reset_c', $reset_c, time() + (86400 * 30)); // 30 days
     </div>
     <div class='modal-bodyi'>
         <form class='form' action='/db/includes/reset-request.inc.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
-        <input class='input3' autocomplete='off' type='email' required name='email2' id='name' placeholder='Emailaddresse' style='margin-bottom:5px'>
+        <input class='input3' autocomplete='off' type='email' required name='email2' id='name' placeholder='Emailaddresse' style='margin-bottom:20px'>
 
-            <div class='modal-spc' style='text-align:center;'>
-                <button class='modal-btn startclr' type='submit' name='reset-request-submit'>Send kode</button>
+            <div class='' style='text-align:center;'>
+                <button class='modal-btn startclr' type='submit' name='reset-request-submit' style="width:100%">Send ny kode til min email</button>
             </div>
         </form>
     </div>";
@@ -61,4 +61,4 @@ setcookie('reset_c', $reset_c, time() + (86400 * 30)); // 30 days
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="css/palette-selector.css">
+<link rel="stylesheet" href="/css/palette-selector.css">

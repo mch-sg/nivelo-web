@@ -23,7 +23,7 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
 ?>
 
 
-        <?php
+        <?php 
         if(isset($_SESSION['useruid'])){
             echo "
             <section class='logScale'> <!-- style='margin-top: 75px;' -->
@@ -35,7 +35,7 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
             <h1 style='font-size:30px;margin-bottom:35px'>{$_SESSION["username"]}</h1>
             
             <div class='modal-bodyi'>
-            <form class='form' action'/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
+            <form class='form' action='/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
                 <!-- <label class='label' for='color' style='color: #414141;font-size: 15px;text-align:left'>Skift Chatfarve</label> -->
                 <input minlength='7' maxlength='7' pattern='^#.*$' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
 
@@ -45,8 +45,8 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
                 <!-- <label class='label' for='mailchange' style='color: #414141;font-size: 15px;text-align:left;'>Skift Email</label> -->
                 <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
     
-                <div class='modal-spc' style='text-align:center;'>
-                    <button class='modal-btn startclr' type='submit' name='submit'>Opdater</button>
+                <div class='modal-spc' style='text-align:center;margin-top:0'>
+                    <button class='modal-btn startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
                 </div>
             </form>
             
@@ -57,8 +57,9 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
             // setcookie("chat_hex", $userColor, $expire, "/");
 
             if (isset($_GET['message'])) {
-                $message = $_GET['message'];
-                if($message == "Opdateret!"){
+                $message = htmlspecialchars($_GET['message'], ENT_QUOTES, 'UTF-8');
+                $allowed_messages = array('Opdateret!');
+                if (in_array($message, $allowed_messages)) {
                     echo '<div style="color: #a2c275;font-size:18px;margin-top:50px;text-align:center">' . $message . '</div>';
                 }
                 else {
@@ -69,7 +70,7 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
             }
 
             // echo "<div style='text-align:center;margin-top:55px;opacity:0.2;font-weight:300'><a class='pro' onclick='deleteAllCookies()'>Slet cookies<br></a></div>";
-            echo "<div style='text-align:center;margin-top:45px;opacity:0.2;font-weight:300'><a class='pro' href='db/includes/logout.inc.php'>Log ud</a></div>
+            echo "<div style='text-align:center;margin-top:30px;opacity:0.25;font-weight:300'><a class='hv' href='/db/includes/logout.inc.php'>Log ud</a></div>
             
             </div>
             </div>
@@ -82,7 +83,7 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
             echo "<p style='margin-top: 25px;'>Du har ikke adgang! Log på for at se din profil.</p>";
         
             echo "<div class='modal-spc' style='text-align:center;'>";
-            echo "<a href='/login.php'><button class='modal-btn'>Log på</button></a>";
+            echo "<a href='/login'><button class='modal-btn'>Log på</button></a>";
             echo "</div>";
             echo "</div>";
         }
@@ -106,4 +107,4 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="css/palette-selector.css">
+<link rel="stylesheet" href="/css/palette-selector.css">

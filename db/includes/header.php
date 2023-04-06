@@ -27,12 +27,12 @@
 <html lang="en">
 <head>
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/pageload.css">
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/theme-popup.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/pageload.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/theme-popup.css">
+    <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="stylesheet" href="/css/media.css">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,4 +64,4 @@
 	<meta property="og:image" content="https://">
 	<meta property="og:type" content="website">
 
-    <link rel="icon" type="image/x-icon" href="/assets/ico.png">
+    <link rel="icon" type="image/x-icon" href="/assets/icons/ico.png">

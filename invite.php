@@ -36,13 +36,11 @@ echo "
         <input class='input3' type='text' required name='bruger' id='bruger' placeholder='Brugernavn (inviterede bruger)' style='margin-bottom:20px'>
         
         <!-- <label class='label' for='room_name' style='color: #818181;font-size: 18px'>Chatnavn</label> -->
-        <input class='input3' autocomplete='off' type='text' required name='room_name' id='name' placeholder='Chatnavn' style='margin-bottom:5px'>
+        <input class='input3' autocomplete='off' type='text' required name='room_name' id='name' placeholder='Chatnavn' style='margin-bottom:20px'>
             <input type='hidden' name='user_from' value='{$_SESSION['useruid']}'>
 
-            <!-- <small class=' style='font-weight: 300'>Glemt adgangskode?</small> -->
-
-            <div class='modal-spc' style='text-align:center;'>
-                <button class='modal-btn startclr' type='submit' name='submit'>Lav chat</button>
+            <div class='' style='text-align:center;'>
+                <button class='modal-btn startclr' type='submit' name='submit' style='width:100%'>Lav chat</button>
             </div>
         </form>
     </div>";
@@ -67,12 +65,12 @@ echo "
 }
 
 else {
+    echo "</div>";
     echo "<div class='aalign'>";
-    echo "<p style='margin-top: 25px;text-align:center'>Du har ikke adgang! <br> Log på for at invitere en bruger til et chatrum.</p>";
+    echo "<p style='margin-top: 25px;'>Log på for at oprette et nyt chatrum!</p>";
 
     echo "<div class='modal-spc' style='text-align:center;'>";
-    echo "<a href='/login.php'><button class='modal-btn'>Log på</button></a>";
-    echo "</div>";
+    echo "<a href='/login'><button class='modal-btn startclr'>Log på</button></a>";
     echo "</div>";
 }
 
@@ -88,4 +86,4 @@ else {
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="css/palette-selector.css">
+<link rel="stylesheet" href="/css/palette-selector.css">

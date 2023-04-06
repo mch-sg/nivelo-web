@@ -20,7 +20,7 @@
   --spinclr: #86a2b8;
 
   --butClr: #86a2b8; /* PRIOR1 #58738a - PRIOR2 #728da3*/
-  --butClrHvr: #718ca3; /* PRIOR1 #425a6f */
+  --butClrHvr: #668299; /* PRIOR1 #425a6f */
 
   --minclr: #171717; /* PRIOR #101010 */
   --bclr: #0000006f;
@@ -92,7 +92,7 @@ hr {
 /*  PRIMARY  */
 
 body {
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
   font-family: "Inter", sans-serif; /* Raleway */
 
   background-color: var(--b);
@@ -118,7 +118,7 @@ body {
   border-radius: 7px;
   padding: 1.25rem 1.5rem;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
 
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
@@ -146,7 +146,7 @@ p {
   /* font-weight: 400; */
   font-size: 17px;
   color: var(--sekclr);
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 h1 a {
@@ -157,7 +157,7 @@ h1 a {
   font-size: 65px;
   color: var(--hclr);
   padding-top: 5px;
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 h1 a:hover {
   color: var(--buttonhover);
@@ -167,7 +167,7 @@ h1 a:hover {
 p a {
   color: var(--add);
   cursor: pointer;
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 p a:hover {
@@ -186,7 +186,7 @@ small {
   font-weight: 500;
   font-size: 12px;
   color: var(--smallclr);
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 main {
@@ -205,7 +205,7 @@ header {
   color: var(--bclr);
   width: 500px;
   max-width: 100%;
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 form {
@@ -217,7 +217,7 @@ form {
   border-radius: 10px;
   background-color: var(--minclr);
 
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 .aalign {
@@ -239,7 +239,7 @@ a button {
   padding: 1rem 1.5rem;
   background-color: var(--hclr);
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   color: var(--b);
 
   backface-visibility: hidden;
@@ -250,15 +250,10 @@ a button:hover {
   /* transform: scale(0.99); */
 }
 
-a button:active {
-  /* background-color: #735d78; */
-  transform: scale(0.92);
-}
-
 i {
   font-size: 20px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.15s ease-in-out;
 }
 
 .select {
@@ -269,10 +264,6 @@ i {
 .hvr {
   cursor: pointer;
   /* color: var(--dim); */
-}
-
-.hvr:hover {
-  color: var(--dimclr);
 }
 
 .navbar li.divider {

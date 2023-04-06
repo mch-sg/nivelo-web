@@ -30,7 +30,7 @@
 
 .sid {
   font-size: 18px;
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 .sid:hover {
@@ -39,7 +39,7 @@
 
 .creat {
   opacity: 0.5;
-  transition: 0.15s ease;
+  transition: 0.15s ease-in-out;
 }
 
 .creat:hover {

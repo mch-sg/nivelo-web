@@ -219,4 +219,4 @@ else {
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="css/palette-selector.css">
+<link rel="stylesheet" href="/css/palette-selector.css">

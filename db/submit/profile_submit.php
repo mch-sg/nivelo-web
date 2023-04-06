@@ -14,9 +14,9 @@ if (!$conn) {
 }
 
 $name = $_SESSION["useruid"];
-$color = $_POST['color'];
-$emailchange = $_POST['mailchange'];
-$namechange = $_POST['namechange'];
+$color = mysqli_real_escape_string($conn, $_POST['color']);
+$emailchange = mysqli_real_escape_string($conn, $_POST['mailchange']);
+$namechange = mysqli_real_escape_string($conn, $_POST['namechange']);
 
 
 // Autoriser bruger
@@ -31,36 +31,44 @@ if (!$authorized) {
 
 
 
+$messagePROFILE = '';
 
-if($color != '') {
-$sql = "UPDATE users SET usersColor = '$color' WHERE usersUid = '$name'";
-// $expire = time() + (86400 * 30); // 30 days
-// setcookie("prf_s_clr", "true", $expire, "/");
-}
-
-if($emailchange != '') {
-$sql = "UPDATE users SET usersEmail = '$emailchange' WHERE usersUid = '$name'";
-// $expire = time() + (86400 * 30); // 30 days
-// setcookie("prf_s_eml", "true", $expire, "/");
-}
-
-if($namechange != '') {
-$sql = "UPDATE users SET usersName = '$namechange' WHERE usersUid = '$name'";
-// $expire = time() + (86400 * 30); // 30 days
-// setcookie("prf_s_nm", "true", $expire, "/");
-}
-
-
-
-if (mysqli_query($conn, $sql)) {
+if (!empty($color)) {
+    $sql = "UPDATE users SET usersColor = ? WHERE usersUid = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $color, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
     $messagePROFILE = "Opdateret!";
-    header("location: ../../profile.php?message=" . urlencode($messagePROFILE));
-} else if($color == '' && $emailchange == '' && $namechange == '') {
-    $messagePROFILE = "Indtast en værdi!";
-    header("location: ../../profile.php?message=" . urlencode($messagePROFILE));
-} else {
-    $messagePROFILE = "Fejl!";
-    header("location: ../../profile.php?message=" . urlencode($messagePROFILE));
 }
+
+if (!empty($emailchange)) {
+    $sql = "UPDATE users SET usersEmail = ? WHERE usersUid = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $emailchange, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    $messagePROFILE = "Opdateret!";
+}
+
+if (!empty($namechange)) {
+    $sql = "UPDATE users SET usersName = ? WHERE usersUid = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $namechange, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    $messagePROFILE = "Opdateret!";
+}
+
+if (empty($color) && empty($emailchange) && empty($namechange)) {
+    $messagePROFILE = "Indtast en værdi!";
+}
+
+if ($messagePROFILE == '') {
+    $messagePROFILE = "Fejl!";
+}
+
+header("location: ../../profile?message=" . urlencode($messagePROFILE));
+
 
 ?>

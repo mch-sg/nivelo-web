@@ -7,7 +7,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s, visibility 0.2s;
-  /* transition: 0.2s ease-in-out; */
+  /* transition: 0.1s ease ease-in-out; */
   /* border: 1px solid black; */
   border-radius: 10px;
   z-index: 1000;
@@ -154,7 +154,7 @@
   padding: 1rem 1.25rem;
   background-color: var(--hclr);
   cursor: pointer;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
   color: var(--b);
 
   -webkit-font-smoothing: antialiased;
@@ -168,7 +168,7 @@
 }
 .modal-btn-header:active {
   /* background-color: #735d78; */
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .modal-btn {
@@ -179,7 +179,7 @@
   padding: 1.25rem 1.5rem;
   /* background-color: var(--hclr); */
   cursor: pointer;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
   color: var(--b);
 
   font-smooth: always;
@@ -195,7 +195,7 @@
 
 .modal-btn:active {
   /* background-color: #735d78; */
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .modal-spc {
@@ -218,7 +218,7 @@
   padding: 1rem;
   resize: none;
 
-  transition: 0.15s ease;
+  transition: 0.1s ease;
 }
 
 #input4:focus {
@@ -243,7 +243,7 @@
   font-size: 18px;
   padding: 1.25rem;
   resize: none;
-  transition: 0.15s ease;
+  transition: 0.1s ease;
 }
 
 .input3:focus {
@@ -273,7 +273,7 @@
   font-size: 18px;
   padding: 1.25rem;
   resize: none;
-  transition: 0.15s ease;
+  transition: 0.1s ease;
 }
 
 .input5:focus {

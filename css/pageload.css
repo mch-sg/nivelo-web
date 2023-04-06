@@ -37,7 +37,7 @@ body {
 ::-webkit-scrollbar-thumb:vertical:hover,
 ::-webkit-scrollbar-thumb:horizontal:hover {
   background-color: rgb(110, 110, 110);
-  transition: 0.3s;
+  transition: 0.15s ease-in-out;
 }
 
 ::-webkit-scrollbar-track {
