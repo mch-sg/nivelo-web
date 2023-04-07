@@ -2,6 +2,16 @@
 
 if(isset($_POST["reset-request-submit"])) {
 
+    // Initialize the counter to 0 if it doesn't exist
+    if (!isset($_COOKIE['reset_request_counter'])) {
+        setcookie('reset_request_counter', 0, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+    }
+
+    // Increment the counter by 1 and update the cookie
+    $reset_request_counter = $_COOKIE['reset_request_counter'] + 1;
+    setcookie('reset_request_counter', $reset_request_counter, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+
+
     $selector = bin2hex(random_bytes(8));
     $token = random_bytes(32);
 

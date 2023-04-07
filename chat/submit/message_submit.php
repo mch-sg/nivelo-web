@@ -1,10 +1,10 @@
 <?php
 
-session_start();
+ session_start();
 
 // Initialize the counter to 0 if it doesn't exist
-if (!isset($_COOKIE['_bsked_s_cc_']) || !is_numeric($_COOKIE['_bsked_s_cc'])) {
-    setcookie('_bsked_s_cc', 0, time() + (86400 * 30), '/', $_SERVER['HTTP_HOST']);
+if (!isset($_COOKIE['message_counter']) || !is_numeric($_COOKIE['message_counter'])) {
+    setcookie('message_counter', 0, time() + (86400 * 30), "/", ".nivelo.eu");
 }
 
 
@@ -49,10 +49,10 @@ $stmt->bindParam(':message', $input);
 
 if ($stmt->execute()) {
     // Increment the counter by 1 and update the cookie
-    $_bsked_s_cc = intval($_COOKIE['_bsked_s_cc']) + 1;
-    setcookie('_bsked_s_cc', $_bsked_s_cc, time() + (86400 * 30), '/', $_SERVER['HTTP_HOST']);
+    $message_counter = intval($_COOKIE['message_counter']) + 1;
+    setcookie('message_counter', $message_counter, time() + (86400 * 30), "/", ".nivelo.eu");
 
-    header("location: ../../chat_room_s/room/$chatToken");
+    header("location: ../room/$chatToken");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

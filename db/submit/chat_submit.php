@@ -2,6 +2,16 @@
 
 session_start();
 
+ // Initialize the counter to 0 if it doesn't exist
+if (!isset($_COOKIE['invite_counter'])) {
+    setcookie('invite_counter', 0, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+}
+
+// Increment the counter by 1 and update the cookie
+$invite_counter = $_COOKIE['invite_counter'] + 1;
+setcookie('invite_counter', $invite_counter, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+
+
 $serverName = "127.0.0.1:3306";
 $dBUsername = "u463909974_exam";
 $dBPassword = "Ekg123321";
@@ -49,7 +59,7 @@ $stmt->bindParam(':uuid', $chat_id);
 
 if ($stmt->execute()) {
     // echo "New record created successfully";
-    header("location: ../../chat_room_s");
+    header("location: https://chat.nivelo.eu");
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

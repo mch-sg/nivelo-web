@@ -123,10 +123,10 @@ function loginUser($conn, $username, $pwd) {
         $_SESSION["useruid"] = $uidExists["usersUid"];
 
         $expire = time() + 60 * 60 * 24 * 365; // 30 days
-        setcookie('loggedin', "true", $expire, "/");
+        setcookie('loggedin', "true", $expire, "/", ".nivelo.eu");
 
         $expire = time() + 60 * 60 * 24 * 365; // 30 days
-        setcookie("user", $uidExists["usersUid"], $expire, "/");
+        setcookie("user", $uidExists["usersUid"], $expire, "/", ".nivelo.eu");
 
         function str_rand(int $length = 20){ // 64 = 32
             $length = ($length < 4) ? 4 : $length;
@@ -138,7 +138,7 @@ function loginUser($conn, $username, $pwd) {
         $unique = uniqid();
         $random = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $desired_length);
 
-        setcookie("login_token", $random, $expire, "/");
+        setcookie("login_token", $random, $expire, "/", ".nivelo.eu");
 
         header("location: ../../");
         exit();

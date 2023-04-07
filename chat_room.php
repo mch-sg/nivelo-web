@@ -2,7 +2,7 @@
 
 // * Selv-lavet kode (ll. 1-37)
 // *
-session_start();
+ session_start();
 
 
 $serverName = "127.0.0.1:3306";

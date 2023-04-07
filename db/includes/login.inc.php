@@ -1,12 +1,12 @@
 <?php
-    session_start();
+     session_start();
 ?>
 
 <?php
 
 if(isset($_POST['submit'])){
 
-    session_start();
+     session_start();
 
     $username = $_POST['uid'];
     $pwd = $_POST['pwd'];

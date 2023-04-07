@@ -18,7 +18,7 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-include_once 'db/includes/header.php';
+include_once '../db/includes/header.php';
 
 // Fetch data til ændring af chatnavnene
 $ranid = htmlspecialchars(basename($_SERVER['REQUEST_URI']), ENT_QUOTES);
@@ -34,13 +34,13 @@ $chat_room_name = $row3['name'];
 $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
 
 ?>
-<title><?php if($host !== 'nivelo.eu/chat_room_s' && isset($chat_room_name)) { echo htmlspecialchars($chat_room_name, ENT_QUOTES); } else { echo "Chatrum"; } ?> - Nivelo</title>
+<title><?php if($host !== 'chat.nivelo.eu/' && isset($chat_room_name)) { echo htmlspecialchars($chat_room_name, ENT_QUOTES); } else { echo "Chatrum"; } ?> - Nivelo</title>
 <script src="/scripts/script.js"></script>
 </head>
 <body>
 
 <?php
-include_once 'db/includes/nav.php';
+include_once '../db/includes/nav.php';
 
 
 if(isset($_SESSION['useruid'])){
@@ -76,7 +76,7 @@ echo "
 
         if($uuid === $user_from_id || $uuid === $user_to_id) {
             echo "
-            <a href='/chat_room_s/room/" . htmlspecialchars($ranid, ENT_QUOTES) . "' class='sid' style='list-style-type: none;'>" . htmlspecialchars($chat_room_name, ENT_QUOTES) . "<br><br></a>
+            <a href='/room/" . htmlspecialchars($ranid, ENT_QUOTES) . "' class='sid' style='list-style-type: none;'>" . htmlspecialchars($chat_room_name, ENT_QUOTES) . "<br><br></a>
             ";
         }
     }
@@ -87,6 +87,7 @@ echo "
 </div>
         ";
 
+// $ranid = htmlspecialchars($_GET['room'], ENT_QUOTES);
 $ranid = htmlspecialchars(basename($_SERVER['REQUEST_URI']), ENT_QUOTES);
 
 $stmt = $conn->prepare("SELECT * FROM chat_rooms WHERE uuid = :s");
@@ -103,20 +104,20 @@ $chat_room_id = $row3['id'];
 // *
 
 $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
-if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id && $host !== 'nivelo.eu/chat_room_s'){
+if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id && $host !== 'chat.nivelo.eu/'){
     echo "<br><br>
     <div class='main-content' style='position: relative;'>
     <div class='chatbox-container chat-scale' style='margin-bottom: 50px;bottom: 80px;'>"; // ! Lånt chat-scale css
     echo "<div class='chatbox' id='chatbox' style='font-weight: 200;color:white; white-space: normal; overflow: auto; word-wrap: break-word;'>"; 
 
-} else if ($_SESSION['useruid'] != $user_from_id || $_SESSION['useruid'] != $user_to_id && $host !== 'nivelo.eu/chat_room_s') {
+} else if ($_SESSION['useruid'] != $user_from_id || $_SESSION['useruid'] != $user_to_id && $host !== 'chat.nivelo.eu/') {
     echo "<br><br>
     <div class='main-content' style='position: relative;'>
     <div class='chatbox-container chat-scale' style='margin-bottom: 0;bottom: 45px;'>"; // ! Lånt chat-scale css
     echo "<div class='chatbox' id='chatbox' style='font-weight: 200;color:white; white-space: normal; overflow: auto; word-wrap: break-word;'>"; 
 }
 
-if($host == 'nivelo.eu/chat_room_s'){
+if($host == 'chat.nivelo.eu/'){
     echo "<br><br>
     <div class='main-content' style='position: relative;'>
     <div class='chatbox-container chat-scale' style='margin-bottom: 0;bottom: 45px;'>"; // ! Lånt chat-scale css
@@ -126,7 +127,7 @@ if($host == 'nivelo.eu/chat_room_s'){
 // ! Lånt kode
 // !
 // Preventer forsiden chat_room.php for at vise noget
-if($host == 'nivelo.eu/chat_room_s'){
+if($host == 'chat.nivelo.eu/'){
     echo "Vælg et rum for at begynde, eller <a class='creat' href='/invite'> lav et nyt.</a><br>";
 }
 
@@ -146,20 +147,20 @@ if ($session_user_id == $user_from_id || $session_user_id == $user_to_id) {
     $authorized = true;
 
     // Udskriv informationer til debugging
-    if($host !== 'nivelo.eu/chat_room_s') {
+    if($host !== 'chat.nivelo.eu/') {
         echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Chat: $chat_room_name<br></h1>";
-        echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Bruger: $uuid<br></h1>";
+        // echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Bruger: $uuid<br></h1>";
 
         echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Authorized: $user_from_id & $user_to_id<br></h1>";
-        echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Room: $chat_room_id<br><br><br></h1>";
+        echo "<h1 style='color: #fff; opacity:0.25;font-weight:200;pointer-events: none;text-align:left;font-size:18px'>Token: $ranid<br><br><br></h1>";
     }
 } 
-else if (!$authorized && $host != 'nivelo.eu/chat_room_s') {
+else if (!$authorized && $host !== 'chat.nivelo.eu/') {
     die("Du har ikke adgang til denne chat.");
 }
 
 // Udprinter messages fra prev. LOAD
-if(count($rows) > 0 && $host != 'nivelo.eu/chat_room_s') {
+if(count($rows) > 0 && $host != 'chat.nivelo.eu/') {
     foreach($rows as $row) {
         $date = new DateTime($row['timestamp']); // Tidspunkt  // ! Lånt linjekode
         $msg = nl2br(htmlspecialchars($row["message"], ENT_QUOTES)); // Splitter beskeder i multiline og undgår XSS // ! Lånt linjekode
@@ -176,7 +177,7 @@ if(count($rows) > 0 && $host != 'nivelo.eu/chat_room_s') {
         // echo "<a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " " . $msg. "<br><br>"; 
         echo "<div style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
     }
-} else if(count($rows) == 0 && $host != 'nivelo.eu/chat_room_s') {
+} else if(count($rows) == 0 && $host != 'chat.nivelo.eu/') {
     // Hvis der er 0 num_rows i message databasen, men at der stadig findes 
     // beskeder i databasen, skal den sige, at der ikke er nogen beskeder endnu.
     echo "Der er ingen beskeder her endnu.";
@@ -189,9 +190,9 @@ echo "
 ";
 
 if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id) {
-    echo "<br><br>";
+    // echo "<br><br>";
     echo "<div class='fixed-input main-content'>"; // ! Lånt fixed-input css
-    echo "<form class='form' method='POST' action='/db/submit/message_submit.php' style='background-color: var(--b);border: none;' >"; /* action='message_submit.php' */
+    echo "<form class='form' method='POST' action='/submit/message_submit.php' style='background-color: var(--b);border: none;' >"; /* action='message_submit.php' */
     // echo "<input type='textarea' name='input' class='input5' autocomplete='off' placeholder='Skriv en besked...'/>";
     echo "<textarea type='textarea' id='messageid' name='input' class='input5' style='display:inline-block;height: 4rem' autocomplete='off' placeholder='Skriv en besked...'></textarea>";
     echo "  <input type='hidden' name='chat_room_id' value='$chat_room_id'>";
@@ -210,7 +211,7 @@ echo "<div class='aalign'>";
 echo "<p style='margin-top: 25px;'>Log på for at skrive og se beskeder!</p>";
 
 echo "<div class='modal-spc' style='text-align:center;'>";
-echo "<a href='/login'><button class='modal-btn startclr'>Log på</button></a>";
+echo "<a href='https://nivelo.eu/login'><button class='modal-btn startclr'>Log på</button></a>";
 echo "</div>";
 
 }
@@ -221,8 +222,8 @@ echo "</div>";
 <div id="preloader" class="loader"></div>
 
 <?php
-    include_once 'db/includes/footer.php';
+    include_once '../db/includes/footer.php';
 
 ?>
 
-<link rel="stylesheet" href="/css/palette-selector.css">
+<link rel="stylesheet" href="https://nivelo.eu/css/palette-selector.css">

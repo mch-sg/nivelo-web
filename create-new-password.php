@@ -1,14 +1,5 @@
 <?php
-session_start();
-
-// Initialize the counter to 0 if it doesn't exist
-if (!isset($_COOKIE['reset_c'])) {
-    setcookie('reset_c', 0, time() + (86400 * 30)); // 30 days
-}
-
-// Increment the counter by 1 and update the cookie
-$reset_c = $_COOKIE['reset_c'] + 1;
-setcookie('reset_c', $reset_c, time() + (86400 * 30)); // 30 days
+ session_start();
 
 ?>
 

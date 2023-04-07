@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+ session_start();
 
 $serverName = "127.0.0.1:3306";
 $dBUsername = "u463909974_exam";

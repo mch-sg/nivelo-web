@@ -1,14 +1,14 @@
 <?php
-session_start();
+ session_start();
 
 // Initialize the counter to 0 if it doesn't exist
-if (!isset($_COOKIE['prf_cc'])) {
-    setcookie('prf_cc', 0, time() + (86400 * 30)); // 30 days
+if (!isset($_COOKIE['profile_visit_counter'])) {
+    setcookie('profile_visit_counter', 0, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
 }
 
 // Increment the counter by 1 and update the cookie
-$prf_cc = $_COOKIE['prf_cc'] + 1;
-setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
+$profile_visit_counter = $_COOKIE['profile_visit_counter'] + 1;
+setcookie('profile_visit_counter', $profile_visit_counter, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
 ?>
 
 <?php
@@ -23,84 +23,68 @@ setcookie('prf_cc', $prf_cc, time() + (86400 * 30)); // 30 days
 ?>
 
 
-        <?php 
-        if(isset($_SESSION['useruid'])){
-            echo "
-            <section class='logScale'> <!-- style='margin-top: 75px;' -->
+<?php 
+if(isset($_SESSION['useruid'])){
+    echo "
+    <section class='logScale'> <!-- style='margin-top: 75px;' -->
 
 
-    <div style='padding: 25px;font-size: 1.5rem;'>
-        <div class='title sysText'> 
+<div style='padding: 25px;font-size: 1.5rem;'>
+<div class='title sysText'> 
 
-            <h1 style='font-size:30px;margin-bottom:35px'>{$_SESSION["username"]}</h1>
-            
-            <div class='modal-bodyi'>
-            <form class='form' action='/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
-                <!-- <label class='label' for='color' style='color: #414141;font-size: 15px;text-align:left'>Skift Chatfarve</label> -->
-                <input minlength='7' maxlength='7' pattern='^#.*$' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
-
-                <!-- <label class='label' for='namechange' style='color: #414141;font-size: 15px;text-align:left;'>Skift Navn</label> -->
-                <input class='input3' type='text' name='namechange' autocomplete='off'  id='namechange' placeholder='Skift Fulde Navn' style='margin-bottom:20px'>
-
-                <!-- <label class='label' for='mailchange' style='color: #414141;font-size: 15px;text-align:left;'>Skift Email</label> -->
-                <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
+    <h1 style='font-size:30px;margin-bottom:35px'>{$_SESSION["username"]}</h1>
     
-                <div class='modal-spc' style='text-align:center;margin-top:0'>
-                    <button class='modal-btn startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
-                </div>
-            </form>
-            
-            <!-- <div style='color:white;text-align:center'>Lys/mørk</div> -->";
-            
-            // $expire = time() + 60 * 60 * 24 * 365; // 1 yr 60 * 60 * 24 * 365
-            // setcookie("theme_preference", "Dark", $expire, "/");
-            // setcookie("chat_hex", $userColor, $expire, "/");
+    <div class='modal-bodyi'>
+    <form class='form' action='/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
+        <input minlength='7' maxlength='7' pattern='^#.*$' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
+        <input class='input3' type='text' name='namechange' autocomplete='off'  id='namechange' placeholder='Skift Fulde Navn' style='margin-bottom:20px'>
+        <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
 
-            if (isset($_GET['message'])) {
-                $message = htmlspecialchars($_GET['message'], ENT_QUOTES, 'UTF-8');
-                $allowed_messages = array('Opdateret!');
-                if (in_array($message, $allowed_messages)) {
-                    echo '<div style="color: #a2c275;font-size:18px;margin-top:50px;text-align:center">' . $message . '</div>';
-                }
-                else {
-                    echo '<div style="color: #C27575;font-size:18px;margin-top:50px;text-align:center">' . $message . '</div>';
+        <div class='modal-spc' style='text-align:center;margin-top:0'>
+            <button class='modal-btn startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
+        </div>
+    </form>
+    
+    <!-- <div style='color:white;text-align:center'>Lys/mørk</div> -->";
+    
+    // $expire = time() + 60 * 60 * 24 * 365; // 1 yr 60 * 60 * 24 * 365
+    // setcookie("theme_preference", "Dark", $expire, "/");
+    // setcookie("chat_hex", $userColor, $expire, "/");
 
-                }
-                // #a2c275 - #818181
-            }
-
-            // echo "<div style='text-align:center;margin-top:55px;opacity:0.2;font-weight:300'><a class='pro' onclick='deleteAllCookies()'>Slet cookies<br></a></div>";
-            echo "<div style='text-align:center;margin-top:30px;opacity:0.25;font-weight:300'><a class='hv' href='/db/includes/logout.inc.php'>Log ud</a></div>
-            
-            </div>
-            </div>
-            </section>
-            ";
-            
+    if (isset($_GET['message'])) {
+        $message = htmlspecialchars($_GET['message'], ENT_QUOTES, 'UTF-8');
+        $allowed_messages = array('Opdateret!');
+        if (in_array($message, $allowed_messages)) {
+            echo '<div style="color: #a2c275;font-size:18px;margin-top:50px;text-align:center">' . $message . '</div>';
         }
-        else{
-            echo "<div class='aalign'>";
-            echo "<p style='margin-top: 25px;'>Du har ikke adgang! Log på for at se din profil.</p>";
-        
-            echo "<div class='modal-spc' style='text-align:center;'>";
-            echo "<a href='/login'><button class='modal-btn'>Log på</button></a>";
-            echo "</div>";
-            echo "</div>";
+        else {
+            echo '<div style="color: #C27575;font-size:18px;margin-top:50px;text-align:center">' . $message . '</div>';
+
         }
-        ?>
+        // #a2c275 - #818181
+    }
 
-        <?php
+    // echo "<div style='text-align:center;margin-top:55px;opacity:0.2;font-weight:300'><a class='pro' onclick='deleteAllCookies()'>Slet cookies<br></a></div>";
+    echo "<div style='text-align:center;margin-top:30px;opacity:0.25;font-weight:300'><a class='hv' href='/db/includes/logout.inc.php'>Log ud</a></div>
+    
+    </div>
+    </div>
+    </section>
+    ";
+    
+}
+else{
+    echo "<div class='aalign'>";
+    echo "<p style='margin-top: 25px;'>Du har ikke adgang! Log på for at se din profil.</p>";
 
-        ?>
-
-
-
-
-
-
+    echo "<div class='modal-spc' style='text-align:center;'>";
+    echo "<a href='/login'><button class='modal-btn'>Log på</button></a>";
+    echo "</div>";
+    echo "</div>";
+}
+?>
 
 <div id="preloader" class="loader"></div>
-
 
 
 <?php

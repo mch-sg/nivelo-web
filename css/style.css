@@ -17,10 +17,10 @@
   --modaltext: #7b7b7b; /* #acacac */
 
   --hclr: #fdfdfd;
-  --spinclr: #86a2b8;
+  --spinclr: #abc09f;
 
-  --butClr: #86a2b8; /* PRIOR1 #58738a - PRIOR2 #728da3*/
-  --butClrHvr: #668299; /* PRIOR1 #425a6f */
+  --butClr: #abc09f; /* PRIOR1 #86a2b8 - PRIOR2 #abc09f*/
+  --butClrHvr: #889f7a; /* PRIOR1 #668299 - PRIOR2 #889f7a */
 
   --minclr: #171717; /* PRIOR #101010 */
   --bclr: #0000006f;
@@ -115,7 +115,7 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 18px;
   border: none;
-  border-radius: 7px;
+  border-radius: 10px;
   padding: 1.25rem 1.5rem;
   cursor: pointer;
   transition: 0.1s ease-in-out;
@@ -235,7 +235,7 @@ a button {
   font-family: "Inter", sans-serif;
   font-size: 17px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 1rem 1.5rem;
   background-color: var(--hclr);
   cursor: pointer;
@@ -292,7 +292,7 @@ i {
 }
 
 .drop-in-modal {
-  animation: fade-in 1500ms ease 1000ms backwards;
+  animation: fade-in 1500ms ease 800ms backwards;
 }
 
 @keyframes drop-in {

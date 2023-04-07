@@ -1,7 +1,7 @@
 
 
 </body>
-<script src="/scripts/script.js"></script>
+<script src="https://nivelo.eu/scripts/script.js"></script>
 
 <script>
     window.addEventListener('load', function() {

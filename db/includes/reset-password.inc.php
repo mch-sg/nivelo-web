@@ -1,6 +1,16 @@
 <?php
 
 if(isset($_POST['reset-password-submit'])) {
+        
+    // Initialize the counter to 0 if it doesn't exist
+    if (!isset($_COOKIE['reset_pwd_counter'])) {
+        setcookie('reset_pwd_counter', 0, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+    }
+
+    // Increment the counter by 1 and update the cookie
+    $reset_pwd_counter = $_COOKIE['reset_pwd_counter'] + 1;
+    setcookie('reset_pwd_counter', $reset_pwd_counter, time() + (86400 * 30), "/", ".nivelo.eu"); // 30 days
+
 
     $selector = $_POST['selector'];
     $validator = $_POST['validator'];
