@@ -18,6 +18,12 @@ body {
   -ms-user-select: none;
 }
 
+.chatbox {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
 /*  SCROLLBAR   */
 
 ::-webkit-scrollbar {

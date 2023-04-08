@@ -65,7 +65,7 @@
             <div class='modal-body'>
 
             <div class='text'>På vores hjemmeside anvender vi cookies for at sikre den bedst mulige brugeroplevelse og for at forstå, hvordan vores besøgende bruger vores tjenester. Cookies er små tekstfiler, der placeres på din enhed, når du besøger vores hjemmeside. Vi bruger cookies til at huske dine præferencer og til at levere målrettede annoncer baseret på dine interesser.
-            </div><div class='text'><br<br> Ved at fortsætte med at bruge vores hjemmeside, accepterer du vores brug af cookies. Hvis du ønsker at ændre dine cookie-indstillinger eller slette eksisterende cookies, kan du gøre dette i din browsers indstillinger. Vær opmærksom på, at blokering eller deaktivering af cookies kan påvirke funktionaliteten og brugeroplevelsen på vores hjemmeside.</div>
+            </div><div class='text'><br<br> Ved at fortsætte med at bruge vores hjemmeside, accepterer du vores brug af cookies. Hvis du ønsker at slette eksisterende cookies, kan du læse mere på vores <a class='chatlink' href='https://nivelo.eu/policy/terms-and-conditions'>Terms and Conditions</a> eller vores <a class='chatlink' href='https://nivelo.eu/policy/privacy-policy'>Privacy Policy</a>. Vær opmærksom på, at blokering eller deaktivering af cookies kan påvirke funktionaliteten og brugeroplevelsen på vores hjemmeside.</div>
             
 
             <!-- <br>  <a class='select hvr' data-reject-button onclick='deleteAllCookies()'><button onclick='deleteAllCookies()' class='startclr' style='width: 48%;margin-right: 1%;'>Afvis</button></a>

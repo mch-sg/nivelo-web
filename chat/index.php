@@ -162,16 +162,20 @@ else if (!$authorized && $host !== 'chat.nivelo.eu/') {
 // Udprinter messages fra prev. LOAD
 if(count($rows) > 0 && $host != 'chat.nivelo.eu/') {
     foreach($rows as $row) {
-        $date = new DateTime($row['timestamp']); // Tidspunkt  // ! Lånt linjekode
-        $msg = nl2br(htmlspecialchars($row["message"], ENT_QUOTES)); // Splitter beskeder i multiline og undgår XSS // ! Lånt linjekode
+            $date = new DateTime($row['timestamp']); // Tidspunkt  
 
-        // Sender farver
-        $sender_id = $row['user_id'];
-        $stmt = $conn->prepare("SELECT usersColor FROM users WHERE usersUid = :usersUid");
-        $stmt->bindParam(':usersUid', $sender_id); 
-        $stmt->execute();
-        $row_color = $stmt->fetch(PDO::FETCH_ASSOC);
-        $userColor = htmlspecialchars($row_color['usersColor']);
+            $msg = htmlspecialchars($row["message"], ENT_QUOTES); // Splitter beskeder i multiline og undgår XSS // ! Lånt linjekode
+            $msg = nl2br($msg);
+            $msg = preg_replace('/(<\/?\w+(?:(?!<\/?\w+>).)*>|^)\K((?:https?:\/\/)[^\s<>"\']+(?:\([\w\d]+\)|[^<>"\'()\[\]\s]))/i', '$1<a class="chatlink" href="$2" target="_blank" rel="noopener noreferrer">$2</a>', $msg);
+
+            // Sender farver
+            $sender_id = $row['user_id']; // Sender ID
+
+            $stmt = $conn->prepare("SELECT usersColor FROM users WHERE usersUid = :usersUid");
+            $stmt->bindParam(':usersUid', $sender_id); 
+            $stmt->execute();
+            $row_color = $stmt->fetch(PDO::FETCH_ASSOC);
+            $userColor = htmlspecialchars($row_color['usersColor']);
 
         // Udskriver beskederne
         // echo "<a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " " . $msg. "<br><br>"; 

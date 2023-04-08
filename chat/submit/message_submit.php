@@ -42,21 +42,24 @@ if (!$authorized) {
 
 // $sql = "INSERT INTO messages (inboxid, user_id, message) VALUES ('$chat_room_id', '$name', '$input')";
 
-$stmt = $conn->prepare("INSERT INTO messages (inboxid, user_id, message) VALUES (:inboxid, :user_id, :message)");
-$stmt->bindParam(':inboxid', $chat_room_id);
-$stmt->bindParam(':user_id', $name);
-$stmt->bindParam(':message', $input);
+if(!empty($input)) {
+    $stmt = $conn->prepare("INSERT INTO messages (inboxid, user_id, message) VALUES (:inboxid, :user_id, :message)");
+    $stmt->bindParam(':inboxid', $chat_room_id);
+    $stmt->bindParam(':user_id', $name);
+    $stmt->bindParam(':message', $input);
 
-if ($stmt->execute()) {
-    // Increment the counter by 1 and update the cookie
-    $message_counter = intval($_COOKIE['message_counter']) + 1;
-    setcookie('message_counter', $message_counter, time() + (86400 * 30), "/", ".nivelo.eu");
+    if ($stmt->execute()) {
+        // Increment the counter by 1 and update the cookie
+        $message_counter = intval($_COOKIE['message_counter']) + 1;
+        setcookie('message_counter', $message_counter, time() + (86400 * 30), "/", ".nivelo.eu");
 
-    header("location: ../room/$chatToken");
+        header("location: ../room/$chatToken");
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    header("location: ../room/$chatToken");
 }
-
 
 
 ?>

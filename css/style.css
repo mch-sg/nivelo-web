@@ -14,7 +14,7 @@
   --sekclr: #fafafa;
 
   --inputplaceholder: #ffffff2b;
-  --modaltext: #7b7b7b; /* #acacac */
+  --modaltext: #898989; /* #acacac */
 
   --hclr: #fdfdfd;
   --spinclr: #abc09f;
@@ -86,7 +86,7 @@
 hr {
   border: 1px solid var(--hrc);
   width: 100%;
-  margin-bottom: 75px;
+  /* margin-bottom: 75px; */
 }
 
 /*  PRIMARY  */
@@ -329,4 +329,13 @@ i {
   top: 50%;
   position: fixed;
   width: 100%;
+}
+
+.chatlink {
+  color: var(--butClr);
+  transition: 0.1s ease-in-out;
+}
+
+.chatlink:hover {
+  color: var(--butClrHvr);
 }

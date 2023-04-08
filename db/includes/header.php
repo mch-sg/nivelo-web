@@ -64,4 +64,4 @@
 	<meta property="og:image" content="https://">
 	<meta property="og:type" content="website">
 
-    <link rel="icon" type="image/x-icon" href="https://nivelo.eu/assets/icons/ico.png">
+    <link rel="icon" type="image/x-icon" href="https://nivelo.eu/assets/icons/ico-3.png">
