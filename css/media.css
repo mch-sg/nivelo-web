@@ -329,6 +329,26 @@
 }
 
 @media only screen and (min-width: 3000px) {
+  .chat-scale {
+    left: 21.25%;
+    width: calc(100% - 22.5%);
+  }
+  .fixed-input {
+    width: calc(100% - 22.5%);
+  }
+
+  .main-content {
+    margin-left: 21.25%;
+  }
+
+  .sendbtn {
+    width: 7.5%;
+  }
+
+  .input5 {
+    width: 91.5%;
+  }
+
   /* * 
   *
   * FOR SIDEBAR CSS
