@@ -29,17 +29,33 @@
 }
 
 .sid {
-  font-size: 18px;
-  transition: 0.15s ease-in-out;
+  font-size: 16px; /* 18px */
+  transition: 0.1s ease-in-out;
+  color: var(--dimclr2);
 }
 
 .sid:hover {
   color: var(--dimclr);
 }
 
+.active-side {
+  color: var(--w);
+  /* border-radius: 10px;
+  background: #202020;
+  padding: 7.5px 20px; */
+}
+
+.active-side:hover {
+  color: var(--w);
+}
+
+/* .i-a {
+  margin-left: -7.5px;
+} */
+
 .creat {
   opacity: 0.5;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .creat:hover {

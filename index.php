@@ -2,7 +2,7 @@
 
     include_once 'db/includes/header.php';
 ?>
-<title>Hjem - Nivelo</title>
+<title>Home - Nivelo</title>
 </head>
 
 <body style=""> <!-- background-image: url('/assets/images/img.png'); background-repeat: no-repeat;background-attachment: fixed; background-size: cover; -->
@@ -22,9 +22,10 @@
 <?php 
     if(isset($_SESSION['useruid'])){
         // echo "<h1 style='text-align: left;align-items: left;'>Velkommen hos Nivelo, {$_SESSION['useruid']}</h1>";
-        echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Kommuniker med Nivelo, en digital chatportal</h1>";
-        echo "<p class='drop-in-2 pad-xl' style='margin-top:35px;text-align:left;color: var(--modaltext);font-weight:300;width:70%;line-height:1.4;'>Udvid talen med Nivelo. Hos os kan du frit kommunikere med dine udlånte selvstændige. Vi tilbyder en enkel og effektiv måde for brugere at kommunikere, dele feedback og holde sig organiseret i løbet af deres projekter.</p>";
-        echo "<a href='https://chat.nivelo.eu'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 2rem;'>Kom i gang</button></a>";
+        echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Communicate with Nivelo, a digital chatportal for freelancers</h1>";
+        // echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Kommuniker med Nivelo, en digital chatportal</h1>";
+        echo "<p class='drop-in-2 pad-xl' style='margin-top:35px;text-align:left;color: var(--modaltext);font-weight:300;width:70%;line-height:1.4;'>Enhance your communication with Nivelo. With us, you can freely communicate with your hired freelancers. We offer a simple and effective way for users to communicate, share feedback, and stay organized throughout their projects.</p>";
+        echo "<a href='https://chat.nivelo.eu'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 2rem;'>Get started</button></a>";
     }
     else{
         echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Kommuniker med Nivelo, en digital chatportal</h1>";
@@ -58,14 +59,14 @@
         <!-- Cookies modal -->
         <div class='modal drop-in-modal' id='modal' style='width: 500px;'>
             <div class='modal-header'>
-                <div class='title'>Vi bruger cookies 🍪</div>
+                <div class='title'>We use cookies 🍪</div>
                 <i class='bi bi-x close-button' data-accept-button></i>
 
             </div>
             <div class='modal-body'>
 
-            <div class='text'>På vores hjemmeside anvender vi cookies for at sikre den bedst mulige brugeroplevelse og for at forstå, hvordan vores besøgende bruger vores tjenester. Cookies er små tekstfiler, der placeres på din enhed, når du besøger vores hjemmeside. Vi bruger cookies til at huske dine præferencer og til at levere målrettede annoncer baseret på dine interesser.
-            </div><div class='text'><br<br> Ved at fortsætte med at bruge vores hjemmeside, accepterer du vores brug af cookies. Hvis du ønsker at slette eksisterende cookies, kan du læse mere på vores <a class='chatlink' href='https://nivelo.eu/policy/terms-and-conditions'>Terms and Conditions</a> eller vores <a class='chatlink' href='https://nivelo.eu/policy/privacy-policy'>Privacy Policy</a>. Vær opmærksom på, at blokering eller deaktivering af cookies kan påvirke funktionaliteten og brugeroplevelsen på vores hjemmeside.</div>
+            <div class='text'>On our website, we use cookies to ensure the best possible user experience and to understand how our visitors use our services. Cookies are small text files that are placed on your device when you visit our website. We use cookies to remember your preferences and to deliver targeted ads based on your interests.
+            </div><div class='text'><br<br> By continuing to use our website, you accept our use of cookies. If you want to delete existing cookies, you can read more on our <a class='chatlink' href='https://nivelo.eu/policy/terms-and-conditions'>Terms and Conditions</a> or our <a class='chatlink' href='https://nivelo.eu/policy/privacy-policy'>Privacy Policy</a>. Please note that blocking or disabling cookies may affect the functionality and user experience on our website.</div>
             
 
             <!-- <br>  <a class='select hvr' data-reject-button onclick='deleteAllCookies()'><button onclick='deleteAllCookies()' class='startclr' style='width: 48%;margin-right: 1%;'>Afvis</button></a>

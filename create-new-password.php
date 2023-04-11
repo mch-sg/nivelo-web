@@ -62,4 +62,4 @@
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="/css/palette-selector.css">
+ 

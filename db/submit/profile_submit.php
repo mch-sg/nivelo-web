@@ -34,6 +34,10 @@ if (!$authorized) {
 $messagePROFILE = '';
 
 if (!empty($color)) {
+    if(strpos($color, '#') !== 0) {
+        $color = "#" . $color;
+    }
+
     $sql = "UPDATE users SET usersColor = ? WHERE usersUid = ?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "ss", $color, $name);

@@ -3,6 +3,7 @@
 
   --add: #cececed2;
   --dimclr: #acacac; /* #949494 */
+  --dimclr2: #939393; /* #949494 */
   --buttonhover: #aaaaaa; /* #919191 */
 
   /*   
@@ -81,7 +82,7 @@ cta {
 
 .hv {
   cursor: pointer;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 .hv:hover {
   opacity: 0.625;
@@ -92,30 +93,30 @@ cta {
   margin-right: auto;
   width: 165px;
   height: auto;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .logo:hover {
   opacity: 0.7;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .nav_links {
   list-style: none;
   vertical-align: middle;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .nav_links li {
   display: inline-block;
   padding: 0px 15px;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .nav_links li a {
   /* transition: all 0.2s ease 0s; */
   font-size: 18px;
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .diva:hover {
@@ -134,7 +135,7 @@ cta {
 }
 
 .pro {
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 .pro:hover {
@@ -170,5 +171,5 @@ cta {
 
 .pro {
   /* color: var(--hclr); */
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }

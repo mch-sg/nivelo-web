@@ -16,12 +16,12 @@
             echo "<a href='javascript:void(0);' onclick='myFunction()' id='p2' class='icon divb bi bi-chevron-down'> </a></li>";
             
             echo "<div class='disc' id='navlink' style='z-index: 1000;'>";
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/invite'>Opret nyt rum</a></li>";
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://chat.nivelo.eu'>Chatrum</a></li>";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/invite'>Create new room</a></li>";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://chat.nivelo.eu'>Chatrooms</a></li>";
             echo "<li id='brd2' class='brd' style='vertical-align: middle;text-align: center;border-left: 1px solid var(--borderclr); height: 35px; margin: 0 0 0 20px;'></li>";
             // echo "<li><a class='pro nlink' style='vertical-align: middle;pointer-events:none;opacity:0.25' >{$_SESSION["useruid"]}</a> ";
             
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>Konto </a><a style='vertical-align: middle;pointer-events:none;opacity:0.25'>({$_SESSION["useruid"]})</a> ";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>Account </a><a style='vertical-align: middle;pointer-events:none;opacity:0.25'>({$_SESSION["useruid"]})</a> ";
             // echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>{$_SESSION["useruid"]}</a> ";
 
             // echo "<li><a class='modal-btn-header nlink' href='logout.inc.php' style='vertical-align: middle;padding: 1rem 1.5rem;'>Log ud</a></li> </div></div>";
@@ -31,12 +31,12 @@
             echo "<a href='javascript:void(0);' onclick='myFunction()' id='p2' class='icon divb bi bi-chevron-down'> </a></li>";
 
             echo "<div class='disc' id='navlink' style='z-index: 1000;'>";
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/about'>Opdag</a></li>";
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://chat.nivelo.eu'>Chatrum</a></li>";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='/about'>About</a></li>";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://chat.nivelo.eu'>Chatrooms</a></li>";
             // echo "<li><a class='pro' style='vertical-align: middle;' href='//pro'>Gå Pro</a></li>";
             echo "<li id='brd2' class='brd' style='vertical-align: middle;text-align: center;border-left: 1px solid var(--borderclr); height: 35px; margin: 0 0 0 20px;'></li>";
-            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/login'>Log på</a></li>";
-            echo "<li><a class='modal-btn-header nlink' href='https://nivelo.eu/signup' style='vertical-align: middle;padding: 1rem 1.5rem;'>Tilmeld</a></li> </div>";
+            echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/login'>Sign in</a></li>";
+            echo "<li><a class='modal-btn-header nlink' href='https://nivelo.eu/signup' style='vertical-align: middle;padding: 1rem 1.5rem;'>Sign up</a></li> </div>";
             
         }
     ?>

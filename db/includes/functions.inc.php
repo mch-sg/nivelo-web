@@ -82,8 +82,10 @@ function createUser($conn, $name, $email, $username, $pwd) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+    loginUser($conn, $username, $pwd);
+    
     // header("location: ../../signup?error=none");
-    header("location: ../../index?error=none");
+    header("location: https://chat.nivelo.eu/");
     exit();
 }
 

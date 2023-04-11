@@ -91,24 +91,6 @@ var expirationDate = new Date(currentDate.getTime() + (365 * 24 * 60 * 60 * 1000
 document.cookie = "visited=true;expires=" + expirationDate.toUTCString() + ";path=/";
 
 
-
-// Enter key to submit form
-// 
-document.getElementById("messageid").addEventListener("keydown", function(event) {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      this.form.submit();
-    }
-});
-
-
-function scrollChatboxToBottom() {
-const chatbox = document.getElementById('chatbox');
-chatbox.scrollTop = chatbox.scrollHeight;
-}
-
-window.onload = scrollChatboxToBottom();
-
   
 function deleteAllCookies() {
     var cookies = document.cookie.split(';');

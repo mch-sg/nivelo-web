@@ -225,4 +225,4 @@ echo "</div>";
 
 ?>
 
-<link rel="stylesheet" href="/css/palette-selector.css">
+ 

@@ -2,12 +2,12 @@
 
 ::-moz-selection {
   /* Code for Firefox */
-  color: #8c8c8c;
+  color: var(--butClr);
   background: none;
 }
 
 ::selection {
-  color: #8c8c8c;
+  color: var(--butClr);
   background: none;
 }
 
@@ -19,11 +19,12 @@ body {
 }
 
 .chatbox {
-  -webkit-user-select: text;
+  -user-select: text;
   -moz-user-select: text;
+  -webkit-user-select: text;
   -ms-user-select: text;
-  user-select: text;
 }
+
 /*  SCROLLBAR   */
 
 ::-webkit-scrollbar {
@@ -43,7 +44,7 @@ body {
 ::-webkit-scrollbar-thumb:vertical:hover,
 ::-webkit-scrollbar-thumb:horizontal:hover {
   background-color: rgb(110, 110, 110);
-  transition: 0.15s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 
 ::-webkit-scrollbar-track {

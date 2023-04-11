@@ -36,7 +36,7 @@ if(isset($_SESSION['useruid'])){
     
     <div class='modal-bodyi'>
     <form class='form' action='/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
-        <input minlength='7' maxlength='7' pattern='^#.*$' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
+        <input minlength='6' maxlength='7' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (#b392ac)' style='margin-bottom:20px'>
         <input class='input3' type='text' name='namechange' autocomplete='off'  id='namechange' placeholder='Skift Fulde Navn' style='margin-bottom:20px'>
         <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
 
@@ -78,7 +78,7 @@ else{
     echo "<p style='margin-top: 25px;'>Du har ikke adgang! Log på for at se din profil.</p>";
 
     echo "<div class='modal-spc' style='text-align:center;'>";
-    echo "<a href='/login'><button class='modal-btn'>Log på</button></a>";
+    echo "<a href='/login'><button class='modal-btn startclr'>Log på</button></a>";
     echo "</div>";
     echo "</div>";
 }
@@ -91,4 +91,4 @@ else{
     include_once 'db/includes/footer.php';
 ?>
 
-<link rel="stylesheet" href="/css/palette-selector.css">
+ 

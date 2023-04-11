@@ -256,7 +256,7 @@
 }
 
 .input5 {
-  width: 89%; /* 75% */
+  width: 100%; /* 75% - 89% */
 
   float: left;
   /* display: inline-block; */
