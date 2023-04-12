@@ -19,13 +19,16 @@ $(document).ready(function() {
             // $('#content').html(data);
             $('#chatbox').html($(data).find('#chatbox').html());
             $('#subform').html($(data).find('#subform').html());
+            $('#titlename').html($(data).find('#titlename').html());
 
             // Update the browser history with the new URL
             history.pushState(null, null, url);
             
             // Update the sidebar
             updateSidebar();
-            scrollChatboxToBottom();
+            botPage();
+            enterListener();
+            // checkInput();
             
         }).fail(function(xhr, textStatus, errorThrown) {
             // Log any errors to the console
@@ -92,6 +95,46 @@ $(document).ready(function() {
                 console.error(xhr, textStatus, errorThrown);
             });
         }
+    }
+
+
+    function enterListener() {
+        
+        var textarea = document.getElementById("messageid");
+
+        if(textarea) {
+        textarea.addEventListener("keydown", function(event) {
+            if (event.key === "Enter" && !event.shiftKey && textarea.value.length > 0) {
+            console.log("log from chat.js: enter-no-ctrl success");
+                event.preventDefault();
+                this.form.submit();
+            }
+            if (event.key === "Enter" && event.shiftKey) {
+            console.log("log from chat.js: enter+ctrl success");
+            var scrollTop = this.scrollTop;
+
+            // // Insert a new line
+            // var start = this.selectionStart;
+            // var end = this.selectionEnd;
+            // var value = this.value;
+            // this.value = value.substring(0, start) + "\n" + value.substring(end);
+            // this.selectionStart = this.selectionEnd = start + 1;
+
+            // Scroll back to the previous position
+            this.scrollTop = scrollTop;
+            }
+        });
+        } 
+    }
+
+    function botPage() {
+        const chatbox = document.getElementById('chatside');
+        // console.log(chatbox);
+        console.log(chatbox.scrollTop);
+        var he = chatbox.scrollHeight;
+        console.log(he);
+        chatbox.scrollTop = he;
+        console.log("scrolled:" + chatbox.scrollTop);
     }
 });
 

@@ -13,7 +13,7 @@
   --w: #efefef;
   --sekclr: #fafafa;
 
-  --inputplaceholder: #ffffff2b;
+  --inputplaceholder: #737373; /* #ffffff30 */
   --modaltext: #898989; /* #acacac */
 
   --hclr: #fdfdfd;
@@ -113,7 +113,7 @@ body {
   background-color: var(--butClr); /* #58738a - #919191 */
 
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
@@ -355,9 +355,13 @@ i {
 }
 
 .fa-regular:hover {
-  opacity: 0.75;
+  opacity: 0.65;
 }
 
 .icon-placement {
-  right: 2%;
+  right: 1.5%;
+}
+
+#iconbtn {
+  color: #737373;
 }

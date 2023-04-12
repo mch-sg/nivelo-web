@@ -13,7 +13,6 @@
     include_once 'db/includes/nav.php';
 ?>
 
-
 <section class="logScale">
     <div style="padding: 25px;font-size: 1.5rem;">
         <div class="title sysText" style="text-align: center;">Log på</div>
@@ -31,7 +30,7 @@
             </div>
         </form>
         
-        <div style="text-align:center;font-size: 18px;font-weight: 300;color:white;opacity:0.25"><a class="hv" href="/reset-password">Glemt adgangskode?</a></div>
+        <div style="text-align:center; font-size: 16px;font-weight: 300;color:white;opacity:0.25;font-size:16px"><a class="hv" href="/reset-password">Glemt adgangskode?</a></div>
 
     </div>
 

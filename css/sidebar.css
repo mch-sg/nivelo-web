@@ -1,7 +1,7 @@
 .sidebar {
   width: 20%; /* 350px */
   /* 150px */
-  height: 90%;
+  height: 95%;
 
   /* background-color: #f1f1f1; */
   border-right: 1px solid var(--borderclr);
@@ -19,13 +19,14 @@
 }
 
 .main-content {
-  margin-left: 22.25%; /* 150px - 90px - 400px - 22.5% */
+  /* !! */
+  margin-left: 21.25%; /* 150px - 90px - 400px - 22.25% */
 }
 
 .sidebar-header {
   font-weight: 300;
   padding-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .sid {
@@ -64,7 +65,7 @@
 
 .fixed-input {
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
   left: 0;
   width: 100%;
   height: 50px;
@@ -87,18 +88,19 @@
 }
 
 .chat-scale {
+  /* !! */
   margin-bottom: 50px;
   position: fixed;
-  top: 140px;
-  left: 22.25%;
+  top: 75px; /* 140px - 100px */
+  left: 20%; /* 22.25% */
   right: 0;
   bottom: 80px;
   width: calc(100% - 24.5%);
 }
 
 .chatbox {
-  padding: 20px;
-  /* font-size: 14px; */
+  /* !! */
+  /* padding: 20px; */
 }
 
 .wid {

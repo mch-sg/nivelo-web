@@ -17,6 +17,8 @@ $name = $_SESSION["useruid"];
 $color = mysqli_real_escape_string($conn, $_POST['color']);
 $emailchange = mysqli_real_escape_string($conn, $_POST['mailchange']);
 $namechange = mysqli_real_escape_string($conn, $_POST['namechange']);
+$teamchange = mysqli_real_escape_string($conn, $_POST['teamchange']);
+$uidchange = mysqli_real_escape_string($conn, $_POST['uidchange']);
 
 
 // Autoriser bruger
@@ -33,6 +35,48 @@ if (!$authorized) {
 
 $messagePROFILE = '';
 
+if(!empty($uidchange)) {
+    
+$sql = "UPDATE users
+SET usersUid = ?
+WHERE usersUid = ?";
+
+mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
+$sql = "UPDATE messages 
+SET user_id = ?
+WHERE user_id = ?";
+
+mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
+$sql = "UPDATE chat_rooms
+SET user_to = ? 
+WHERE user_to = ?";
+
+mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
+$sql = "UPDATE chat_rooms
+SET user_from = ? 
+WHERE user_from = ?";
+
+mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
+$messagePROFILE = "Opdateret id!";
+
+}
+
 if (!empty($color)) {
     if(strpos($color, '#') !== 0) {
         $color = "#" . $color;
@@ -44,6 +88,26 @@ if (!empty($color)) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     $messagePROFILE = "Opdateret!";
+}
+
+if (!empty($teamchange)) {
+    if($teamchange === " ") {
+        $sql = "UPDATE users SET company = NULL WHERE usersUid = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $name);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+
+        $messagePROFILE = "Fjernet!";
+    } else {
+
+    $sql = "UPDATE users SET company = ? WHERE usersUid = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ss", $teamchange, $name);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    $messagePROFILE = "Opdateret!";
+    }
 }
 
 if (!empty($emailchange)) {
@@ -64,7 +128,8 @@ if (!empty($namechange)) {
     $messagePROFILE = "Opdateret!";
 }
 
-if (empty($color) && empty($emailchange) && empty($namechange)) {
+
+if (empty($color) && empty($emailchange) && empty($namechange) && empty($teamchange) && empty($uidchange)) {
     $messagePROFILE = "Indtast en værdi!";
 }
 

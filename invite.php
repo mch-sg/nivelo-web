@@ -22,7 +22,7 @@ echo "
     </div>
     <div class='modal-bodyi'>
         <form class='form' action='/db/submit/chat_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
-        <!-- <label class='label' for='bruger' style='color: #818181;font-size: 18px;'>Brugernavnet på den inviterede</label> -->
+        <!-- <label class='label' for='bruger' style='color: #818181; font-size: 16px;'>Brugernavnet på den inviterede</label> -->
         <input class='input3' type='text' required name='bruger' id='bruger' placeholder='Brugernavn (inviterede bruger)' style='margin-bottom:20px'>
         
         <!-- <label class='label' for='room_name' style='color: #818181;font-size: 18px'>Chatnavn</label> -->

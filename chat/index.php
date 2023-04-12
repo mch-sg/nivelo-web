@@ -33,6 +33,7 @@ $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
 
 ?>
 <title><?php if($host !== 'chat.nivelo.eu/' && isset($chat_room_name)) { echo htmlspecialchars($chat_room_name, ENT_QUOTES); } else { echo "Chatrum"; } ?> - Nivelo</title>
+<script src="/scripts/dynamic-page-loading-nav.js"></script>
 <script src="https://nivelo.eu/scripts/script.js"></script>
 </head>
 <body id='body'>
@@ -177,15 +178,50 @@ if(count($rows) > 0 && $host != 'chat.nivelo.eu/') {
             // Sender farver
             $sender_id = $row['user_id']; // Sender ID
 
-            $stmt = $conn->prepare("SELECT usersColor FROM users WHERE usersUid = :usersUid");
+            $stmt = $conn->prepare("SELECT company, privileges, usersColor FROM users WHERE usersUid = :usersUid");
             $stmt->bindParam(':usersUid', $sender_id); 
             $stmt->execute();
             $row_color = $stmt->fetch(PDO::FETCH_ASSOC);
             $userColor = htmlspecialchars($row_color['usersColor']);
+            $userPrivilege = htmlspecialchars($row_color['privileges']);
+            $userCompany = htmlspecialchars($row_color['company']);
 
-        // Udskriver beskederne
-        // echo "<a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " " . $msg. "<br><br>"; 
-        echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+
+            // ! Udskriver beskederne
+            // ! med PRIVILEGIER
+            // ! uden FIRMA
+            if($userPrivilege === "admin" && $userCompany !== "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-regular fa-badge-check' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i><a style='margin-right: 5px;padding: 2px 8px;background: #212121;color: #8f8f8f;font-size:15px;font-weight:300;pointer-events: none;margin-left: 5px;border-radius: 5px;'>$userCompany</a></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            else if($userPrivilege === "moderator" && $userCompany !== "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-duotone fa-shield-check' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i><a style='margin-right: 5px;padding: 2px 8px;background: #212121;color: #8f8f8f;font-size:15px;font-weight:300;pointer-events: none;margin-left: 5px;border-radius: 5px;'>$userCompany</a></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            else if($userPrivilege === "vip" && $userCompany !== "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-solid fa-asterisk' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i><a style='margin-right: 5px;padding: 2px 8px;background: #212121;color: #8f8f8f;font-size:15px;font-weight:300;pointer-events: none;margin-left: 5px;border-radius: 5px;'>$userCompany</a></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            
+            else if ($userCompany !== "") {
+                // !
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "  <a style='margin-right: 5px;padding: 2px 8px;background: #212121;color: #8f8f8f;font-size:15px;font-weight:300;pointer-events: none;margin-left: 5px;border-radius: 5px;'>$userCompany</a></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            }
+
+            // ? Udskriver beskederne
+            // ? med PRIVILEGIER
+            // ? med FIRMA
+            if($userPrivilege === "admin" && $userCompany == "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-regular fa-badge-check' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            else if($userPrivilege === "moderator" && $userCompany == "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-duotone fa-shield-check' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            else if($userPrivilege === "vip" && $userCompany == "") {
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "<i class='fa-solid fa-asterisk' style='font-size: 14px;margin-left:5px;margin-right: 3px;'></i></a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            } 
+            
+            else if ($userCompany == "") {
+                // ?
+                echo "<div class='chatmsg' style='line-height: 1.5;'><a style='color: $userColor; font-weight:300;pointer-events: none;'>".$row["user_id"]. "</a> " ."<a style='opacity:0.15;pointer-events: none;font-weight:200'>" . $date->format('d/m H:i'). "</a> " . " <div style='display: inline-grid;margin-bottom: 15px;'>" . $msg. "</div><br></div>";
+            }
     }
 } else if(count($rows) == 0 && $host != 'chat.nivelo.eu/') {
     // Hvis der er 0 num_rows i message databasen, men at der stadig findes 
@@ -215,7 +251,8 @@ if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id)
 
     echo "
     <button type='submit' value='Send' style='border:none;background:none'>
-    <i class='fa-regular fa-paper-plane fa-xl icon-placement' style='
+    <i class='fa-regular fa-paper-plane-top fa-xl icon-placement' style='
+        font-weight:900;
         float: right;
         position: absolute;
         background: none;
@@ -246,8 +283,8 @@ echo "</div>";
 
 </div>
 <div id="preloader" class="loader"></div>
-<script src="https://nivelo.eu/scripts/scroll.js"></script>
-<script src="https://nivelo.eu/scripts/chat.js"></script>
+<script src="/scripts/scroll.js"></script>
+<script src="/scripts/chat.js"></script>
 
 <?php
     include_once '../db/includes/footer.php';
