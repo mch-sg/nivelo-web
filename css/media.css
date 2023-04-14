@@ -304,10 +304,6 @@
   ?
   ? */
 
-  .input {
-    width: 92%;
-  }
-
   .container {
     width: 600px;
     max-width: 100%;
@@ -334,11 +330,13 @@
     width: calc(100% - 22.5%);
   }
   .fixed-input {
-    width: calc(100% - 22.5%);
+    /* width: calc(100% - 22.5%); */
+    width: calc(100% - 21.25%);
   }
 
   .main-content {
-    margin-left: 21.25%;
+    /* margin-left: 21.25%; */
+    margin-left: 20.7%;    
   }
 
   .sendbtn {

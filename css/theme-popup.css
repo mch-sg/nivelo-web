@@ -7,8 +7,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.2s, visibility 0.2s;
-  /* transition: 0.1s ease ease-in-out; */
-  /* border: 1px solid black; */
   border-radius: 10px;
   z-index: 1000;
   background-color: var(--minclr);
@@ -33,11 +31,9 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
-  /* border-bottom: 1px solid var(--borderclr); */
 }
 
 .title {
-  /* font-size: 1.25rem; */
   font-weight: 500;
   color: var(--sekclr);
 }
@@ -71,7 +67,6 @@
 }
 
 .close-button:hover {
-  /* color: var(--dimclr); */
   opacity: 0.5;
 }
 
@@ -81,8 +76,6 @@
   padding: 15px 25px 25px 25px;
   background-color: var(--minclr);
   border-radius: 8px;
-  /* display: flex; */
-  /* justify-content: space-between; */
 }
 
 .modal-bodyi {
@@ -164,69 +157,14 @@
 }
 .modal-btn-header:hover {
   background: var(--butClrHvr); /* #425A6F - #6E6E6E*/
-  /* transform: scale(0.99); */
 }
 .modal-btn-header:active {
-  /* background-color: #735d78; */
-  transform: scale(0.98);
-}
-
-.modal-btn {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-  /* background-color: var(--hclr); */
-  cursor: pointer;
-  transition: 0.1s ease-in-out;
-  color: var(--b);
-
-  font-smooth: always;
-  -webkit-font-smoothing: antialiased;
-  backface-visibility: hidden;
-  transform: translateZ(0);
-}
-
-.modal-btn:hover {
-  /* background-color: var(--buttonhover); */
-  /* transform: scale(0.99); */
-}
-
-.modal-btn:active {
-  /* background-color: #735d78; */
   transform: scale(0.98);
 }
 
 .modal-spc {
   margin: 0.5rem 0;
   margin-top: 2rem;
-}
-
-#input4 {
-  width: 96%;
-  height: 100%;
-  border: none;
-  outline: none;
-  background-color: var(--minclr);
-  border: 1px solid var(--borderclr);
-  border-radius: 10px;
-  color: var(--w);
-  font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  padding: 1rem;
-  resize: none;
-
-  transition: 0.1s ease;
-}
-
-#input4:focus {
-  background-color: var(--focusclr);
-}
-
-#input4::placeholder {
-  color: var(--inputplaceholder);
 }
 
 .input3 {

@@ -13,7 +13,7 @@
   --w: #efefef;
   --sekclr: #fafafa;
 
-  --inputplaceholder: #737373; /* #ffffff30 */
+  --inputplaceholder: #646464; /* #ffffff30 - #737373*/
   --modaltext: #898989; /* #acacac */
 
   --hclr: #fdfdfd;
@@ -129,6 +129,10 @@ body {
   background-color: var(--butClrHvr); /* #425A6F - #6e6e6e*/
 }
 
+.startclr:active {
+  transform: scale(0.98);
+}
+
 h1 {
   color: var(--w);
   text-align: center;
@@ -209,7 +213,7 @@ header {
 }
 
 form {
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05); /* rgba(127, 127, 127, 0.075) */
+  /* box-shadow: 0 5px 30px rgba(0, 0, 0, 0.05);  rgba(127, 127, 127, 0.075) */
   margin: auto;
   /* width: 600px;
   max-width: 100%; */
@@ -363,5 +367,5 @@ i {
 }
 
 #iconbtn {
-  color: #737373;
+  color: var(--inputplaceholder);
 }

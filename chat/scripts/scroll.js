@@ -25,6 +25,6 @@ function checkInput() {
         iconbtn.style.color = '#ffffff';
     } else {
         button.disabled = true;
-        iconbtn.style.color = '#737373';
+        iconbtn.style.color = 'var(--inputplaceholder';
     }
 }

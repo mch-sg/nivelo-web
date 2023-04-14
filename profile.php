@@ -69,7 +69,7 @@ if(isset($_SESSION['useruid'])){
         <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
 
         <div class='modal-spc' style='text-align:center;margin-top:0'>
-            <button class='modal-btn startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
+            <button class='startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
         </div>
     </form>
     
@@ -106,7 +106,7 @@ else{
     echo "<p style='margin-top: 25px;'>Du har ikke adgang! Log på for at se din profil.</p>";
 
     echo "<div class='modal-spc' style='text-align:center;'>";
-    echo "<a href='/login'><button class='modal-btn startclr'>Log på</button></a>";
+    echo "<a href='/login'><button class='startclr'>Log på</button></a>";
     echo "</div>";
     echo "</div>";
 }

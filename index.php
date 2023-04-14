@@ -25,12 +25,12 @@
         echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Communicate with Nivelo, a digital chatportal for freelancers</h1>";
         // echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Kommuniker med Nivelo, en digital chatportal</h1>";
         echo "<p class='drop-in-2 pad-xl' style='margin-top:35px;text-align:left;color: var(--modaltext);font-weight:300;width:70%;line-height:1.4;'>Enhance your communication with Nivelo. With us, you can freely communicate with your hired freelancers. We offer a simple and effective way for users to communicate, share feedback, and stay organized throughout their projects.</p>";
-        echo "<a href='https://chat.nivelo.eu'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 2rem;'>Get started</button></a>";
+        echo "<a href='https://chat.nivelo.eu'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 1.75rem;'>Get started</button></a>";
     }
     else{
-        echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Kommuniker med Nivelo, en digital chatportal</h1>";
-        echo "<p class='drop-in-2 pad-xl' style='margin-top:35px;text-align:left;color: #7a7a7a;font-weight:200;width:70%;line-height:1.4;'>Udvid talen med Nivelo. Hos os kan du frit kommunikere med dine udlånte selvstændige. Vi tilbyder en enkel og effektiv måde for brugere at kommunikere, dele feedback og holde sig organiseret i løbet af deres projekter.</p>";
-        echo "<a href='/signup'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 2rem;'>Kom i gang</button></a>";
+        echo "<h1 class='drop-in pad' style='text-align: left;align-items: left'>Communicate with Nivelo, a digital chatportal for freelancers</h1>";
+        echo "<p class='drop-in-2 pad-xl' style='margin-top:35px;text-align:left;color: #7a7a7a;font-weight:200;width:70%;line-height:1.4;'>Enhance your communication with Nivelo. With us, you can freely communicate with your hired freelancers. We offer a simple and effective way for users to communicate, share feedback, and stay organized throughout their projects.</p>";
+        echo "<a href='/signup'><button class='startclr drop-in-3' style='margin-top: 75px;padding: 1.25rem 1.75rem;'>Get started</button></a>";
 
     }
 

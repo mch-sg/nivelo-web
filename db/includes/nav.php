@@ -1,7 +1,7 @@
-<header id="header" class="head" style="height:75px">
+<header id="header" class="head" style="height:85px">
     <a class="h-logo pro" href="https://nivelo.eu" style=" font-size: 16px; transition: 0.1s ease;">
         <div class="hv">
-            <img style="vertical-align: middle;margin-left: 15px;" src="https://nivelo.eu/assets/icons/nivelo-2.svg" width="85px"></img>
+            <img style="vertical-align: middle;margin-left: 15px;" src="https://nivelo.eu/assets/icons/nivelo-2.svg" width="95px"></img>
         </div>
     </a>
 
@@ -22,7 +22,7 @@
 
             echo "<li>
             <a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>
-            <i class='fa-solid fa-gear' style='vertical-align: revert;font-size: 16px;'></i> </a>
+            <i class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
             </li>";
             // echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>{$_SESSION["useruid"]}</a> ";
 
@@ -38,7 +38,7 @@
             // echo "<li><a class='pro' style='vertical-align: middle;' href='//pro'>Gå Pro</a></li>";
             echo "<li id='brd2' class='brd' style='vertical-align: middle;text-align: center;border-left: 1px solid var(--borderclr); height: 35px; margin: 0 0 0 20px;'></li>";
             echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/login'>Sign in</a></li>";
-            echo "<li><a class='modal-btn-header nlink' href='https://nivelo.eu/signup' style='vertical-align: middle;padding: 0.85rem 1.5rem;'>Sign up</a></li> </div>";
+            echo "<li><a class='modal-btn-header nlink' href='https://nivelo.eu/signup' style='vertical-align: middle;padding: 0.85rem 1.25rem;'>Sign up</a></li> </div>";
             
         }
     ?>

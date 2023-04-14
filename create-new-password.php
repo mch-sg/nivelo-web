@@ -34,7 +34,7 @@
                     <input class='input3' autocomplete='off' type='password' required name='pwd-repeat-n' id='name' placeholder='Gentag adgangskode' style='margin-bottom:5px'>
 
                     <div class='modal-spc' style='text-align:center;'>
-                        <button class='modal-btn startclr' type='submit' name='reset-password-submit'>Nulstil adgangskode</button>
+                        <button class='startclr' type='submit' name='reset-password-submit'>Nulstil adgangskode</button>
                     </div>
                 </form>
 

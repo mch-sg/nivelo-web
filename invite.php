@@ -30,7 +30,7 @@ echo "
             <input type='hidden' name='user_from' value='{$_SESSION['useruid']}'>
 
             <div class='' style='text-align:center;'>
-                <button class='modal-btn startclr' type='submit' name='submit' style='width:100%'>Lav chat</button>
+                <button class='startclr' type='submit' name='submit' style='width:100%'>Lav chat</button>
             </div>
         </form>
     </div>";
@@ -60,7 +60,7 @@ else {
     echo "<p style='margin-top: 25px;'>Log på for at oprette et nyt chatrum!</p>";
 
     echo "<div class='modal-spc' style='text-align:center;'>";
-    echo "<a href='/login'><button class='modal-btn startclr'>Log på</button></a>";
+    echo "<a href='/login'><button class='startclr'>Log på</button></a>";
     echo "</div>";
 }
 

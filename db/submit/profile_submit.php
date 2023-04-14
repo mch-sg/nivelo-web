@@ -37,43 +37,43 @@ $messagePROFILE = '';
 
 if(!empty($uidchange)) {
     
-$sql = "UPDATE users
-SET usersUid = ?
-WHERE usersUid = ?";
+    $sql = "UPDATE users
+    SET usersUid = ?
+    WHERE usersUid = ?";
 
-mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
+    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-$sql = "UPDATE messages 
-SET user_id = ?
-WHERE user_id = ?";
+    $sql = "UPDATE messages 
+    SET user_id = ?
+    WHERE user_id = ?";
 
-mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
+    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-$sql = "UPDATE chat_rooms
-SET user_to = ? 
-WHERE user_to = ?";
+    $sql = "UPDATE chat_rooms
+    SET user_to = ? 
+    WHERE user_to = ?";
 
-mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
+    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-$sql = "UPDATE chat_rooms
-SET user_from = ? 
-WHERE user_from = ?";
+    $sql = "UPDATE chat_rooms
+    SET user_from = ? 
+    WHERE user_from = ?";
 
-mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_execute($stmt);
-mysqli_stmt_close($stmt);
+    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
 
-$messagePROFILE = "Opdateret id!";
+    $messagePROFILE = "Opdateret id!";
 
 }
 

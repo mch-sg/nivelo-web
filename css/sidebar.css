@@ -1,7 +1,7 @@
 .sidebar {
   width: 20%; /* 350px */
   /* 150px */
-  height: 95%;
+  height: 100%;
 
   /* background-color: #f1f1f1; */
   border-right: 1px solid var(--borderclr);
@@ -39,20 +39,23 @@
   color: var(--dimclr);
 }
 
+.sidadd {
+  font-size: 16px; /* 18px */
+  transition: 0.1s ease-in-out;
+  color: var(--dimclr2);
+}
+
+.sidadd:hover {
+  color: var(--dimclr);
+}
+
 .active-side {
   color: var(--w);
-  /* border-radius: 10px;
-  background: #202020;
-  padding: 7.5px 20px; */
 }
 
 .active-side:hover {
   color: var(--w);
 }
-
-/* .i-a {
-  margin-left: -7.5px;
-} */
 
 .creat {
   opacity: 0.5;
@@ -91,7 +94,7 @@
   /* !! */
   margin-bottom: 50px;
   position: fixed;
-  top: 75px; /* 140px - 100px */
+  top: 85px; /* 140px - 100px */
   left: 20%; /* 22.25% */
   right: 0;
   bottom: 80px;

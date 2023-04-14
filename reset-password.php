@@ -22,7 +22,7 @@
         <input class='input3' autocomplete='off' type='email' required name='email2' id='name' placeholder='Emailaddresse' style='margin-bottom:20px'>
 
             <div class='' style='text-align:center;'>
-                <button class='modal-btn startclr' type='submit' name='reset-request-submit' style="width:100%">Send ny kode til min email</button>
+                <button class='startclr' type='submit' name='reset-request-submit' style="width:100%">Send ny kode til min email</button>
             </div>
         </form>
     </div>";

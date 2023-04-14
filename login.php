@@ -26,7 +26,7 @@
             <input class="input3"  type="password" name="pwd" placeholder="Adgangskode" style="margin-bottom:20px">
 
             <div class="" style="text-align:center;">
-                <button class="modal-btn startclr" type="submit" name="submit" style="width: 100%;margin-bottom: 30px;">Log på</button>
+                <button class="startclr" type="submit" name="submit" style="width: 100%;margin-bottom: 30px;">Log på</button>
             </div>
         </form>
         
