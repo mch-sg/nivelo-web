@@ -1,6 +1,6 @@
 <?php
 
-function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
+function emptyInputSignup($name, $email, $username, $pwd) {
     $result;
     if (empty($name) || empty($email) || empty($username) || empty($pwd)) {
         $result = true;
@@ -13,7 +13,7 @@ function emptyInputSignup($name, $email, $username, $pwd, $pwdRepeat) {
 
 function invalidUid($username) {
     $result;
-    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+    if (!preg_match("/^[a-zA-Z0-9.]*$/", $username)) {
         $result = true;
     }
     else {

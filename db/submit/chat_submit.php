@@ -30,7 +30,7 @@ try {
 $name = $_SESSION["useruid"];
 $input = htmlspecialchars($_POST['input'], ENT_QUOTES, 'UTF-8');
 
-$chat_room_name = htmlspecialchars($_POST['room_name'], ENT_QUOTES, 'UTF-8');
+$chat_room_name = html_entity_decode(htmlspecialchars($_POST['room_name'], ENT_QUOTES, 'UTF-8'), ENT_QUOTES, 'UTF-8');
 $bruger = htmlspecialchars($_POST['bruger'], ENT_QUOTES, 'UTF-8');
 $from = $_SESSION['useruid'];
 $chat_id = uniqid();
