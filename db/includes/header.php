@@ -27,6 +27,7 @@
 <html lang="en">
 <head>
 
+    <link rel="stylesheet" type="text/css" href="https://nivelo.eu/css/colorchange.php"> 
     <link rel="stylesheet" href="https://nivelo.eu/css/style.css">
     <link rel="stylesheet" href="https://nivelo.eu/css/pageload.css">
     <link rel="stylesheet" href="https://nivelo.eu/css/home.css">

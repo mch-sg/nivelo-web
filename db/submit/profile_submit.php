@@ -1,24 +1,16 @@
 <?php
 
- session_start();
+session_start();
 
-$serverName = "127.0.0.1:3306";
-$dBUsername = "u463909974_exam";
-$dBPassword = "Ekg123321";
-$dBName = "u463909974_portal";
-
-$conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+include_once '../includes/dbh.inc.php';
 
 $name = $_SESSION["useruid"];
-$color = mysqli_real_escape_string($conn, $_POST['color']);
-$emailchange = mysqli_real_escape_string($conn, $_POST['mailchange']);
-$namechange = mysqli_real_escape_string($conn, $_POST['namechange']);
-$teamchange = mysqli_real_escape_string($conn, $_POST['teamchange']);
-$uidchange = mysqli_real_escape_string($conn, $_POST['uidchange']);
+$color = $_POST['color'];
+$theme = $_POST['theme'];
+$emailchange = $_POST['mailchange'];
+$namechange = $_POST['namechange'];
+$teamchange = $_POST['teamchange'];
+$uidchange = $_POST['uidchange'];
 
 
 // Autoriser bruger
@@ -35,101 +27,108 @@ if (!$authorized) {
 
 $messagePROFILE = '';
 
-if(!empty($uidchange)) {
+// if(!empty($uidchange)) {
     
-    $sql = "UPDATE users
-    SET usersUid = ?
-    WHERE usersUid = ?";
+//     $sql = "UPDATE users
+//     SET usersUid = ?
+//     WHERE usersUid = ?";
 
-    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+//     mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+//     $stmt = mysqli_prepare($conn, $sql);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
 
-    $sql = "UPDATE messages 
-    SET user_id = ?
-    WHERE user_id = ?";
+//     $sql = "UPDATE messages 
+//     SET user_id = ?
+//     WHERE user_id = ?";
 
-    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+//     mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+//     $stmt = mysqli_prepare($conn, $sql);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
 
-    $sql = "UPDATE chat_rooms
-    SET user_to = ? 
-    WHERE user_to = ?";
+//     $sql = "UPDATE chat_rooms
+//     SET user_to = ? 
+//     WHERE user_to = ?";
 
-    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+//     mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+//     $stmt = mysqli_prepare($conn, $sql);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
 
-    $sql = "UPDATE chat_rooms
-    SET user_from = ? 
-    WHERE user_from = ?";
+//     $sql = "UPDATE chat_rooms
+//     SET user_from = ? 
+//     WHERE user_from = ?";
 
-    mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+//     mysqli_stmt_bind_param($stmt, "ss", $uidchange, $name);
+//     $stmt = mysqli_prepare($conn, $sql);
+//     mysqli_stmt_execute($stmt);
+//     mysqli_stmt_close($stmt);
 
-    $messagePROFILE = "Opdateret id!";
+//     $messagePROFILE = "Opdateret id!";
 
-}
+// }
 
 if (!empty($color)) {
     if(strpos($color, '#') !== 0) {
         $color = "#" . $color;
     }
 
-    $sql = "UPDATE users SET usersColor = ? WHERE usersUid = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $color, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $stmt = $conn->prepare("UPDATE users SET usersColor = :uc WHERE usersUid = :ui"); 
+    $stmt->bindParam(':uc', $color);
+    $stmt->bindParam(':ui', $name);
+    $stmt->execute();
+    $messagePROFILE = "Opdateret!";
+}
+
+if (!empty($theme)) {
+    if(strpos($theme, '#') !== 0) {
+        $theme = "#" . $theme;
+    }
+
+    $stmt = $conn->prepare("UPDATE users SET usersTheme = :uc WHERE usersUid = :ui"); 
+    $stmt->bindParam(':uc', $theme);
+    $stmt->bindParam(':ui', $name);
+    $stmt->execute();
     $messagePROFILE = "Opdateret!";
 }
 
 if (!empty($teamchange)) {
     if($teamchange === " ") {
-        $sql = "UPDATE users SET company = NULL WHERE usersUid = ?";
-        $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "s", $name);
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt);
-
+        $stmt = $conn->prepare("UPDATE users SET company = NULL WHERE usersUid = :ui"); 
+        $stmt->bindParam(':ui', $name);
+        $stmt->execute();
         $messagePROFILE = "Fjernet!";
+    
     } else {
 
-    $sql = "UPDATE users SET company = ? WHERE usersUid = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $teamchange, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $stmt = $conn->prepare("UPDATE users SET company = :uc WHERE usersUid = :ui"); 
+    $stmt->bindParam(':uc', $teamchange);
+    $stmt->bindParam(':ui', $name);
+    $stmt->execute();
     $messagePROFILE = "Opdateret!";
+    
     }
 }
 
 if (!empty($emailchange)) {
-    $sql = "UPDATE users SET usersEmail = ? WHERE usersUid = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $emailchange, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $stmt = $conn->prepare("UPDATE users SET usersEmail = :uc WHERE usersUid = :ui"); 
+    $stmt->bindParam(':uc', $emailchange);
+    $stmt->bindParam(':ui', $name);
+    $stmt->execute();
     $messagePROFILE = "Opdateret!";
 }
 
 if (!empty($namechange)) {
-    $sql = "UPDATE users SET usersName = ? WHERE usersUid = ?";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $namechange, $name);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
+    $stmt = $conn->prepare("UPDATE users SET usersName = :uc WHERE usersUid = :ui"); 
+    $stmt->bindParam(':uc', $namechange);
+    $stmt->bindParam(':ui', $name);
+    $stmt->execute();
     $messagePROFILE = "Opdateret!";
 }
 
 
-if (empty($color) && empty($emailchange) && empty($namechange) && empty($teamchange) && empty($uidchange)) {
+if (empty($color) && empty($theme) && empty($emailchange) && empty($namechange) && empty($teamchange) && empty($uidchange)) {
     $messagePROFILE = "Indtast en værdi!";
 }
 

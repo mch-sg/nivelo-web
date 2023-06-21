@@ -156,7 +156,7 @@
   background-color: var(--butClr); /* #58738a - #919191 */
 }
 .modal-btn-header:hover {
-  background: var(--butClrHvr); /* #425A6F - #6E6E6E*/
+  opacity: 0.8;
 }
 .modal-btn-header:active {
   transform: scale(0.98);
@@ -178,7 +178,7 @@
   color: var(--w);
   font-family: "Inter", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 17px;
   padding: 1.25rem;
   resize: none;
   transition: 0.1s ease;
@@ -208,7 +208,7 @@
   color: var(--w);
   font-family: "Inter", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 17px;
   padding: 1.25rem;
   resize: none;
   transition: 0.1s ease;

@@ -35,26 +35,9 @@
     }
 
     echo "
-    </main>
-        <!-- hi modal
-        <div class='modal drop-in-modal' id='modal1' style='width: 500px;'>
-            <div class='modal-header'>
-                <div class='title'>Nyheder</div>
-                <i class='bi bi-x close-button' data-accept-button></i>
-
-            </div>
-            <div class='modal-body'>
-
-            <div class='text'><br<br> Ved at fortsætte med at bruge vores hjemmeside, accepterer du vores brug af cookies. Hvis du ønsker at ændre dine cookie-indstillinger eller slette eksisterende cookies, kan du gøre dette i din browsers indstillinger. Vær opmærksom på, at blokering eller deaktivering af cookies kan påvirke funktionaliteten og brugeroplevelsen på vores hjemmeside.</div>
-            
-
-            <!-- <br>  <a class='select hvr' data-reject-button onclick='deleteAllCookies()'><button onclick='deleteAllCookies()' class='startclr' style='width: 48%;margin-right: 1%;'>Afvis</button></a>
-                <a class='select hvr' data-accept-button><button class='startclr' style='width: 48%'>Accepter</button></a> -->";
+    </main>";
                 
             echo "<!-- <br /> -->
-            </div>
-        </div>
-        <div id='overlay1' class='drop-in-modal overlay'></div>
 
         <!-- Cookies modal -->
         <div class='modal drop-in-modal' id='modal' style='width: 500px;'>

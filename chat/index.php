@@ -2,20 +2,7 @@
 
 session_start();
 
-$serverName = "127.0.0.1:3306";
-$dBUsername = "u463909974_exam";
-$dBPassword = "Ekg123321";
-$dBName = "u463909974_portal";
-
-// $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-
-try {
-    $conn = new PDO("mysql:host=$serverName;dbname=$dBName", $dBUsername, $dBPassword);
-} catch(PDOException $e) {
-    // Handle any database connection errors
-    die("Database connection failed: " . $e->getMessage());
-}
-
+include_once '../db/includes/dbh.inc.php';
 
 include_once '../db/includes/header.php';
 ?>
@@ -69,8 +56,8 @@ $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
             echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>Account </a><a style='vertical-align: middle;pointer-events:none;opacity:0.25'>({$_SESSION["useruid"]})</a> ";
 
             echo "<li>
-            <a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>
-            <i class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
+            <a class='pro nlink' style='vertical-align: middle;' id='newli2'>
+            <i data-modal-target='#modal' class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
             </li>";
 
         }
@@ -274,7 +261,7 @@ if(count($rows) > 0 && $host != 'chat.nivelo.eu/') {
             if($userColor !== "") {
                 $newColor = substr($userColor, 1);
             } else {
-                $newColor = random;
+                $newColor = ffffff;
             }
 
             // ! Udskriver beskederne
@@ -377,7 +364,7 @@ if($_SESSION['useruid'] == $user_from_id || $_SESSION['useruid'] == $user_to_id)
         position: absolute;
         background: none;
         align-items: flex-end;
-        top: 5.25rem;
+        top: 5.2rem;
     '></i>
     
     </button>"; /* background: #ff462e; */
@@ -403,6 +390,10 @@ echo "</div>";
 ?>
 
 </div>
+</div>
+
+
+
 <div id="preloader" class="loader"></div>
 <script src="/scripts/scroll.js"></script>
 <script src="/scripts/chat.js"></script>
@@ -412,4 +403,3 @@ echo "</div>";
 
 ?>
 
- 

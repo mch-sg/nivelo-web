@@ -1,20 +1,7 @@
 <?php
- session_start();
+session_start();
 
- $serverName = "127.0.0.1:3306";
-$dBUsername = "u463909974_exam";
-$dBPassword = "Ekg123321";
-$dBName = "u463909974_portal";
-
-// $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-
-try {
-    $conn = new PDO("mysql:host=$serverName;dbname=$dBName", $dBUsername, $dBPassword);
-} catch(PDOException $e) {
-    // Handle any database connection errors
-    die("Database connection failed: " . $e->getMessage());
-}
-
+include_once 'db/includes/dbh.inc.php';
 
 // Initialize the counter to 0 if it doesn't exist
 if (!isset($_COOKIE['profile_visit_counter'])) {
@@ -41,13 +28,15 @@ setcookie('profile_visit_counter', $profile_visit_counter, time() + (86400 * 30)
 <?php 
 
 $sender_id = $_SESSION['useruid'];
-$stmt = $conn->prepare("SELECT company, privileges, usersColor FROM users WHERE usersUid = :usersUid");
+$stmt = $conn->prepare("SELECT usersName, company, privileges, usersColor, usersTheme FROM users WHERE usersUid = :usersUid");
 $stmt->bindParam(':usersUid', $sender_id); 
 $stmt->execute();
 $row_color = $stmt->fetch(PDO::FETCH_ASSOC);
 $userColor = htmlspecialchars($row_color['usersColor']);
 $userPrivilege = htmlspecialchars($row_color['privileges']);
 $userCompany = htmlspecialchars($row_color['company']);
+$name = htmlspecialchars($row_color['usersName']);
+$theme = htmlspecialchars($row_color['usersTheme']);
 
 
 if(isset($_SESSION['useruid'])){
@@ -58,18 +47,19 @@ if(isset($_SESSION['useruid'])){
 <div style='padding: 25px;font-size: 1.5rem;'>
 <div class='title sysText'> 
 
-    <h1 style='font-size:30px;margin-bottom:35px'>{$_SESSION["username"]}</h1>
+    <h1 style='font-size:30px;margin-bottom:35px'>{$name}</h1>
     
     <div class='modal-bodyi'>
     <form class='form' action='/db/submit/profile_submit.php' method='POST' style='background-color: var(--b);border: none;width: 450px;'>
-        <input minlength='6' maxlength='7' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve (Aktuelt: {$userColor})' style='margin-bottom:20px'>
-        <input class='input3' type='text' name='teamchange' autocomplete='off'  id='teamchange' placeholder='Skift Holdnavn (Aktuelt: {$userCompany})' style='margin-bottom:20px'>
+        <input minlength='6' maxlength='7' class='input3' type='text' name='color' id='color' placeholder='Skift Chatfarve ({$userColor})' style='margin-bottom:20px'>
+        <input minlength='6' maxlength='7' class='input3' type='text' name='theme' id='theme' placeholder='Skift Tema ({$theme})' style='margin-bottom:20px'>
+        <input class='input3' type='text' name='teamchange' autocomplete='off'  id='teamchange' placeholder='Skift Holdnavn ({$userCompany})' style='margin-bottom:20px'>
         <input class='input3' type='text' name='namechange' autocomplete='off'  id='namechange' placeholder='Skift Fulde Navn' style='margin-bottom:20px'>
-        <input class='input3' type='text' name='uidchange' autocomplete='off'  id='uidchange' placeholder='Skift userId' style='margin-bottom:20px'>
-        <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>
+     <!--   <input class='input3' type='text' name='uidchange' autocomplete='off'  id='uidchange' placeholder='Skift userId' style='margin-bottom:20px'> 
+        <input class='input3' type='text' name='mailchange' id='mailchange' placeholder='Skift Email' style='margin-bottom:20px'>  -->
 
         <div class='modal-spc' style='text-align:center;margin-top:0'>
-            <button class='startclr' type='submit' name='submit' style='width:100%;margin-top:3px'>Opdater ændringer</button>
+            <button class='startclr' type='submit' name='submit' style='width:100%;margin-top:3px;font-size: 17px'>Opdater ændringer</button>
         </div>
     </form>
     
@@ -93,7 +83,7 @@ if(isset($_SESSION['useruid'])){
     }
 
     // echo "<div style='text-align:center;margin-top:55px;opacity:0.2;font-weight:300'><a class='pro' onclick='deleteAllCookies()'>Slet cookies<br></a></div>";
-    echo "<div style='text-align:center;margin-top:30px;opacity:0.25;font-weight:300;font-size:16px'><a class='hv' href='/db/includes/logout.inc.php'>Log ud</a></div>
+    echo "<div style='text-align:center;margin-top:30px;opacity:0.25;font-weight:300;font-size:17px'><a class='hv' href='/db/includes/logout.inc.php'>Log ud</a></div>
     
     </div>
     </div>

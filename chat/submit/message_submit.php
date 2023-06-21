@@ -8,19 +8,8 @@ if (!isset($_COOKIE['message_counter']) || !is_numeric($_COOKIE['message_counter
 }
 
 
-$serverName = "127.0.0.1:3306";
-$dBUsername = "u463909974_exam";
-$dBPassword = "Ekg123321";
-$dBName = "u463909974_portal";
 
-// $conn = mysqli_connect($serverName, $dBUsername, $dBPassword, $dBName);
-
-try {
-    $conn = new PDO("mysql:host=$serverName;dbname=$dBName", $dBUsername, $dBPassword);
-} catch(PDOException $e) {
-    // Handle any database connection errors
-    die("Database connection failed: " . $e->getMessage());
-}
+include_once '../../db/includes/dbh.inc.php';
 
 
 $name = $_SESSION["useruid"];
