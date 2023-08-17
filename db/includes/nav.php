@@ -20,10 +20,10 @@
             
             echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>Account </a><a style='vertical-align: middle;pointer-events:none;opacity:0.25'>({$_SESSION["useruid"]})</a> ";
 
-            echo "<li>
-            <a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>
-            <i class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
-            </li>";
+            // echo "<li>
+            // <a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>
+            // <i class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
+            // </li>";
             // echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>{$_SESSION["useruid"]}</a> ";
 
             // echo "<li><a class='modal-btn-header nlink' href='logout.inc.php' style='vertical-align: middle;padding: 1rem 1.5rem;'>Log ud</a></li> </div></div>";

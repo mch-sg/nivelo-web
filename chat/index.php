@@ -23,7 +23,8 @@ $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
 ?>
 <?php if($host !== 'chat.nivelo.eu/' && isset($chat_room_name)) { echo htmlspecialchars($chat_room_name, ENT_QUOTES); } else { echo "Chatrum"; } ?> - Nivelo</title>
 <script src="/scripts/dynamic-page-loading-nav.js"></script>
-<script src="https://nivelo.eu/scripts/script.js"></script>
+<!-- <script src="https://nivelo.eu/scripts/script.js"></script> -->
+<script src="/scripts/setModal.js"></script>
 </head>
 <body id='body'>
 
@@ -56,8 +57,8 @@ $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
             echo "<li><a class='pro nlink' style='vertical-align: middle;' href='https://nivelo.eu/profile'>Account </a><a style='vertical-align: middle;pointer-events:none;opacity:0.25'>({$_SESSION["useruid"]})</a> ";
 
             echo "<li>
-            <a class='pro nlink' style='vertical-align: middle;' id='newli2'>
-            <i data-modal-target='#modal' class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
+            <a class='pro nlink' style='vertical-align: middle;'>
+            <i data-modal-target='#modal1' class='fa-solid fa-gear' style='vertical-align: revert;font-size: 17px;'></i> </a>
             </li>";
 
         }
@@ -392,14 +393,38 @@ echo "</div>";
 </div>
 </div>
 
+   
+<!-- Cookies modal -->
+<div id='modal1' class='modal drop-in-modal' style='width: 500px;'>
+    <div class='modal-header'>
+        <div class='title'>asdasd 🍪</div>
+        <i class='bi bi-x close-button' data-accept-button></i>
+    </div>
+    <div class='modal-body'>
+        <div class='text'>On our website, we use cookies to ensure the best possible user experience and to understand how our visitors use our services. Cookies are small text files that are placed on your device when you visit our website. We use cookies to remember your preferences and to deliver targeted ads based on your interests.</div>
+        <div class='text'><br<br> By continuing to use our website, you accept our use of cookies. If you want to delete existing cookies, you can read more on our <a class='chatlink' href='https://nivelo.eu/policy/terms-and-conditions'>Terms and Conditions</a> or our <a class='chatlink' href='https://nivelo.eu/policy/privacy-policy'>Privacy Policy</a>. Please note that blocking or disabling cookies may affect the functionality and user experience on our website.</div>
+        
+        <br>  <a class='select hvr' data-reject-button onclick='deleteAllCookies()'><button onclick='deleteAllCookies()' class='startclr' style='width: 48%;margin-right: 1%;'>Afvis</button></a>
+        <a class='select hvr' data-accept-button><button class='startclr' style='width: 48%'>Accepter</button></a> 
+        
+    </div>
+</div>
+<div id='overlay1' class='drop-in-modal overlay'></div>
 
 
 <div id="preloader" class="loader"></div>
 <script src="/scripts/scroll.js"></script>
 <script src="/scripts/chat.js"></script>
 
-<?php
-    include_once '../db/includes/footer.php';
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+        document.querySelector('.loader').classList.add('loader--hidden');
+        }, 00)
 
-?>
-
+        document.querySelector('.loader').addEventListener('transitionend', function() {
+            document.querySelector('.loader').style.display = 'none';
+        })
+    });
+</script> 
+</html>
